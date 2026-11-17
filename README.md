@@ -44,8 +44,8 @@ A laptop run is valid data but is a different machine: its numbers must not be c
 - `data/<yyyy>/<mm>/<run-id>.json`: the raw result files, unchanged. **This is the source of truth.** The charts are
   derived from it and can be rebuilt from it.
 - `site/`: the static dashboard (`index.html`, `workload.html?w=<workload>`, `app.js`, `style.css`). No build step.
-- `site/series/`, `site/index.json`, `site/latest.json`: written by the nightly export, listed in `.gitignore` here and added
-  by the publish step of the private infra repo. Not edited by hand.
+- `site/series/`, `site/index.json`, `site/latest.json`: written and committed by the nightly export (publish step of the
+  private infra repo), deployed by Pages. Not edited by hand.
 - `site/fixtures/`: hand-built sample data in the exact export format, for developing the dashboard. Synthetic numbers.
   Regenerate with `tools/gen_fixtures.py`. It is deployed with the site but nothing links to it.
 - `data/2026/11/<run-id>.json`: a sample raw file that the fixture tooltips point at. It is not a real result.
@@ -53,12 +53,12 @@ A laptop run is valid data but is a different machine: its numbers must not be c
 ## Develop the dashboard
 
 ```
-./serve-fixtures.sh          # http://localhost:8000, uses site/fixtures
+./serve-fixtures.sh          # http://localhost:8000, serves a git-ignored copy in site-preview/ with the fixtures
 python3 tools/check_site.py  # every file referenced by index.json exists and parses
 node --check site/app.js
 ```
 
-ECharts is loaded from cdnjs with a subresource integrity hash and a Content-Security-Policy that allows scripts from
+ECharts 5.5.0 is loaded from cdnjs with a subresource integrity hash and a Content-Security-Policy that allows scripts from
 this origin and cdnjs only.
 
 ## Owed
@@ -66,8 +66,5 @@ this origin and cdnjs only.
 - Step 5: after the first real nightly, open the Pages URL and check the latest point's commit against the native image's
   `org.opencontainers.image.revision` label from that night.
 - Enable GitHub Pages (source: GitHub Actions) when the repo is created.
-- The publish step has to commit the real `site/series`, `index.json` and `latest.json` despite `.gitignore`
-  (`git add -f`), or `.gitignore` has to be relaxed for them. `scripts/publish.sh` in the infra repo currently runs
-  `git add data site`, which skips ignored files.
 - ECharts 5.5.1 is not on cdnjs (the path 404s and the API lists no files). The pages load 5.5.0 with its SRI hash.
   Move to 5.6.0 or newer and recompute the hash when wanted.

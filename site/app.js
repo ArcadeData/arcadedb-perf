@@ -8,7 +8,9 @@
 
   var PRIMARY = ['records_per_s', 'queries_per_s', 'processing_s', 'recall_at_10'];
   var COMMIT_URL = 'https://github.com/ArcadeData/arcadedb/commit/';
-  var RAW_URL = 'https://github.com/ArcadeData/arcadedb-perf/blob/main/data/';
+  // Raw result files live in the repo, not on Pages; the local preview serves them from a relative data/ folder.
+  var LOCAL = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(window.location.hostname);
+  var RAW_BASE = LOCAL ? 'data/' : 'https://github.com/ArcadeData/arcadedb-perf/blob/main/data/';
   var JVM_ONLY_NOTE = 'JVM only: Graphalytics runs embedded';
   var JVM_ONLY = { 'graph-analytics': true };
 
@@ -176,7 +178,7 @@
     }
     if (typeof p.runId === 'string' && /^[A-Za-z0-9._\-]+$/.test(p.runId) && /^\d{4}-\d{2}/.test(p.t || '')) {
       var raw = el('a', null, 'raw JSON');
-      raw.href = RAW_URL + p.t.slice(0, 4) + '/' + p.t.slice(5, 7) + '/' + p.runId + '.json';
+      raw.href = RAW_BASE + p.t.slice(0, 4) + '/' + p.t.slice(5, 7) + '/' + p.runId + '.json';
       raw.target = '_blank';
       raw.rel = 'noopener noreferrer';
       row('data', raw);

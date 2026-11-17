@@ -3,6 +3,7 @@
 and latest.json lines point at series that exist. Usage: check_site.py [dir]  (default: site/fixtures)."""
 import json
 import os
+import re
 import sys
 
 root = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "site", "fixtures")
@@ -40,6 +41,10 @@ if index:
                         for k in ("t", "commit", "tag", "median", "status", "runId"):
                             if k not in p:
                                 errors.append("%s: point lacks %s" % (m["file"], k))
+                        if "benchCommit" not in p:
+                            errors.append("%s: point lacks benchCommit" % m["file"])
+                        elif p["benchCommit"] is not None and not re.fullmatch(r"[0-9a-f]{7,40}", p["benchCommit"]):
+                            errors.append("%s: benchCommit %r is not a short or full sha" % (m["file"], p["benchCommit"]))
                         if p["median"] is None and p["status"] == "ok":
                             errors.append("%s: ok point without median" % m["file"])
 if latest:

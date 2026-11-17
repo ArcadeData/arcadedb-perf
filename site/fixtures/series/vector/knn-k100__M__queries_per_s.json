@@ -11,6 +11,7 @@
      "t": "2026-10-25T03:00:00Z",
      "commit": "1e1ad5100b",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 611.5,
      "status": "ok",
      "runId": "2026-10-25T03-00-00Z-1e1ad5100b-jvm"
@@ -19,6 +20,7 @@
      "t": "2026-10-26T03:00:00Z",
      "commit": "1e23e88012",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 610.7,
      "status": "ok",
      "runId": "2026-10-26T03-00-00Z-1e23e88012-jvm"
@@ -27,6 +29,7 @@
      "t": "2026-10-27T03:00:00Z",
      "commit": "1e2cfbf019",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 606.2,
      "status": "ok",
      "runId": "2026-10-27T03-00-00Z-1e2cfbf019-jvm"
@@ -35,6 +38,7 @@
      "t": "2026-10-28T03:00:00Z",
      "commit": "1e360f6020",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 608.1,
      "status": "ok",
      "runId": "2026-10-28T03-00-00Z-1e360f6020-jvm"
@@ -43,6 +47,7 @@
      "t": "2026-10-29T03:00:00Z",
      "commit": "1e3f22d027",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 621.3,
      "status": "ok",
      "runId": "2026-10-29T03-00-00Z-1e3f22d027-jvm"
@@ -51,6 +56,7 @@
      "t": "2026-10-30T03:00:00Z",
      "commit": "1e4836402e",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 629.0,
      "status": "ok",
      "runId": "2026-10-30T03-00-00Z-1e4836402e-jvm"
@@ -59,6 +65,7 @@
      "t": "2026-10-31T03:00:00Z",
      "commit": "1e5149b035",
      "tag": "26.10.1",
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 641.9,
      "status": "ok",
      "runId": "2026-10-31T03-00-00Z-1e5149b035-jvm"
@@ -67,6 +74,7 @@
      "t": "2026-11-01T03:00:00Z",
      "commit": "1e5a5d203c",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 648.5,
      "status": "ok",
      "runId": "2026-11-01T03-00-00Z-1e5a5d203c-jvm"
@@ -75,6 +83,7 @@
      "t": "2026-11-02T03:00:00Z",
      "commit": "1e63709043",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 647.7,
      "status": "ok",
      "runId": "2026-11-02T03-00-00Z-1e63709043-jvm"
@@ -83,6 +92,7 @@
      "t": "2026-11-03T03:00:00Z",
      "commit": "1e6c84004a",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 652.7,
      "status": "ok",
      "runId": "2026-11-03T03-00-00Z-1e6c84004a-jvm"
@@ -91,6 +101,7 @@
      "t": "2026-11-04T03:00:00Z",
      "commit": "1e75977051",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 644.9,
      "status": "ok",
      "runId": "2026-11-04T03-00-00Z-1e75977051-jvm"
@@ -99,6 +110,7 @@
      "t": "2026-11-05T03:00:00Z",
      "commit": "1e7eaae058",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 643.8,
      "status": "ok",
      "runId": "2026-11-05T03-00-00Z-1e7eaae058-jvm"
@@ -107,6 +119,7 @@
      "t": "2026-11-06T03:00:00Z",
      "commit": "1e87be505f",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 646.0,
      "status": "ok",
      "runId": "2026-11-06T03-00-00Z-1e87be505f-jvm"
@@ -115,6 +128,7 @@
      "t": "2026-11-07T03:00:00Z",
      "commit": "1e90d1c066",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 651.8,
      "status": "ok",
      "runId": "2026-11-07T03-00-00Z-1e90d1c066-jvm"
@@ -123,6 +137,7 @@
      "t": "2026-11-08T03:00:00Z",
      "commit": "1e99e5306d",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 659.3,
      "status": "ok",
      "runId": "2026-11-08T03-00-00Z-1e99e5306d-jvm"
@@ -131,6 +146,7 @@
      "t": "2026-11-09T03:00:00Z",
      "commit": "1ea2f8a074",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 662.4,
      "status": "ok",
      "runId": "2026-11-09T03-00-00Z-1ea2f8a074-jvm"
@@ -139,6 +155,7 @@
      "t": "2026-11-10T03:00:00Z",
      "commit": "1eac0c107b",
      "tag": "26.11.1",
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 665.0,
      "status": "ok",
      "runId": "2026-11-10T03-00-00Z-1eac0c107b-jvm"
@@ -147,6 +164,7 @@
      "t": "2026-11-11T03:00:00Z",
      "commit": "1eb51f8082",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 662.2,
      "status": "ok",
      "runId": "2026-11-11T03-00-00Z-1eb51f8082-jvm"
@@ -155,6 +173,7 @@
      "t": "2026-11-12T03:00:00Z",
      "commit": "1ebe32f089",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 665.5,
      "status": "ok",
      "runId": "2026-11-12T03-00-00Z-1ebe32f089-jvm"
@@ -163,6 +182,7 @@
      "t": "2026-11-13T03:00:00Z",
      "commit": "1ec7466090",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 679.1,
      "status": "ok",
      "runId": "2026-11-13T03-00-00Z-1ec7466090-jvm"
@@ -171,6 +191,7 @@
      "t": "2026-11-14T03:00:00Z",
      "commit": "1ed059d097",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 690.4,
      "status": "ok",
      "runId": "2026-11-14T03-00-00Z-1ed059d097-jvm"
@@ -179,6 +200,7 @@
      "t": "2026-11-15T03:00:00Z",
      "commit": "1ed96d409e",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 686.4,
      "status": "ok",
      "runId": "2026-11-15T03-00-00Z-1ed96d409e-jvm"
@@ -187,6 +209,7 @@
      "t": "2026-11-16T03:00:00Z",
      "commit": "1ee280b0a5",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 680.2,
      "status": "ok",
      "runId": "2026-11-16T03-00-00Z-1ee280b0a5-jvm"
@@ -195,6 +218,7 @@
      "t": "2026-11-17T03:00:00Z",
      "commit": "1eeb9420ac",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 684.7,
      "status": "ok",
      "runId": "2026-11-17T03-00-00Z-1eeb9420ac-jvm"
@@ -209,6 +233,7 @@
      "t": "2026-10-25T04:35:00Z",
      "commit": "1e1ad5100b",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 573.4,
      "status": "ok",
      "runId": "2026-10-25T03-00-00Z-1e1ad5100b-native"
@@ -217,6 +242,7 @@
      "t": "2026-10-26T04:35:00Z",
      "commit": "1e23e88012",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 573.5,
      "status": "ok",
      "runId": "2026-10-26T03-00-00Z-1e23e88012-native"
@@ -225,6 +251,7 @@
      "t": "2026-10-27T04:35:00Z",
      "commit": "1e2cfbf019",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 583.5,
      "status": "ok",
      "runId": "2026-10-27T03-00-00Z-1e2cfbf019-native"
@@ -233,6 +260,7 @@
      "t": "2026-10-28T04:35:00Z",
      "commit": "1e360f6020",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 592.2,
      "status": "ok",
      "runId": "2026-10-28T03-00-00Z-1e360f6020-native"
@@ -241,6 +269,7 @@
      "t": "2026-10-29T04:35:00Z",
      "commit": "1e3f22d027",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 599.5,
      "status": "ok",
      "runId": "2026-10-29T03-00-00Z-1e3f22d027-native"
@@ -249,6 +278,7 @@
      "t": "2026-10-30T04:35:00Z",
      "commit": "1e4836402e",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 597.1,
      "status": "ok",
      "runId": "2026-10-30T03-00-00Z-1e4836402e-native"
@@ -257,6 +287,7 @@
      "t": "2026-10-31T04:35:00Z",
      "commit": "1e5149b035",
      "tag": "26.10.1",
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 594.3,
      "status": "ok",
      "runId": "2026-10-31T03-00-00Z-1e5149b035-native"
@@ -265,6 +296,7 @@
      "t": "2026-11-01T04:35:00Z",
      "commit": "1e5a5d203c",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 587.6,
      "status": "ok",
      "runId": "2026-11-01T03-00-00Z-1e5a5d203c-native"
@@ -273,6 +305,7 @@
      "t": "2026-11-02T04:35:00Z",
      "commit": "1e63709043",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 585.8,
      "status": "ok",
      "runId": "2026-11-02T03-00-00Z-1e63709043-native"
@@ -281,6 +314,7 @@
      "t": "2026-11-03T04:35:00Z",
      "commit": "1e6c84004a",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 588.8,
      "status": "ok",
      "runId": "2026-11-03T03-00-00Z-1e6c84004a-native"
@@ -289,6 +323,7 @@
      "t": "2026-11-04T04:35:00Z",
      "commit": "1e75977051",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 599.7,
      "status": "ok",
      "runId": "2026-11-04T03-00-00Z-1e75977051-native"
@@ -297,6 +332,7 @@
      "t": "2026-11-05T04:35:00Z",
      "commit": "1e7eaae058",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 594.1,
      "status": "ok",
      "runId": "2026-11-05T03-00-00Z-1e7eaae058-native"
@@ -305,6 +341,7 @@
      "t": "2026-11-06T04:35:00Z",
      "commit": "1e87be505f",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 595.8,
      "status": "ok",
      "runId": "2026-11-06T03-00-00Z-1e87be505f-native"
@@ -313,6 +350,7 @@
      "t": "2026-11-07T04:35:00Z",
      "commit": "1e90d1c066",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 602.2,
      "status": "ok",
      "runId": "2026-11-07T03-00-00Z-1e90d1c066-native"
@@ -321,6 +359,7 @@
      "t": "2026-11-08T04:35:00Z",
      "commit": "1e99e5306d",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 599.2,
      "status": "ok",
      "runId": "2026-11-08T03-00-00Z-1e99e5306d-native"
@@ -329,6 +368,7 @@
      "t": "2026-11-09T04:35:00Z",
      "commit": "1ea2f8a074",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 607.0,
      "status": "ok",
      "runId": "2026-11-09T03-00-00Z-1ea2f8a074-native"
@@ -337,6 +377,7 @@
      "t": "2026-11-10T04:35:00Z",
      "commit": "1eac0c107b",
      "tag": "26.11.1",
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 610.5,
      "status": "ok",
      "runId": "2026-11-10T03-00-00Z-1eac0c107b-native"
@@ -345,6 +386,7 @@
      "t": "2026-11-11T04:35:00Z",
      "commit": "1eb51f8082",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 608.6,
      "status": "ok",
      "runId": "2026-11-11T03-00-00Z-1eb51f8082-native"
@@ -353,6 +395,7 @@
      "t": "2026-11-12T04:35:00Z",
      "commit": "1ebe32f089",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 615.6,
      "status": "ok",
      "runId": "2026-11-12T03-00-00Z-1ebe32f089-native"
@@ -361,6 +404,7 @@
      "t": "2026-11-13T04:35:00Z",
      "commit": "1ec7466090",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 608.4,
      "status": "ok",
      "runId": "2026-11-13T03-00-00Z-1ec7466090-native"
@@ -369,6 +413,7 @@
      "t": "2026-11-14T04:35:00Z",
      "commit": "1ed059d097",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 617.5,
      "status": "ok",
      "runId": "2026-11-14T03-00-00Z-1ed059d097-native"
@@ -377,6 +422,7 @@
      "t": "2026-11-15T04:35:00Z",
      "commit": "1ed96d409e",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 627.2,
      "status": "ok",
      "runId": "2026-11-15T03-00-00Z-1ed96d409e-native"
@@ -385,6 +431,7 @@
      "t": "2026-11-16T04:35:00Z",
      "commit": "1ee280b0a5",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 622.1,
      "status": "ok",
      "runId": "2026-11-16T03-00-00Z-1ee280b0a5-native"
@@ -393,6 +440,7 @@
      "t": "2026-11-17T04:35:00Z",
      "commit": "1eeb9420ac",
      "tag": null,
+     "benchCommit": "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c",
      "median": 624.1,
      "status": "ok",
      "runId": "2026-11-17T03-00-00Z-1eeb9420ac-native"

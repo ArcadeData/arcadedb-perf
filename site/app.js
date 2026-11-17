@@ -176,6 +176,9 @@
     } else if (p.commit) {
       row('commit', el('span', null, String(p.commit)));
     }
+    if (typeof p.benchCommit === 'string' && /^[0-9a-f]{7,40}$/.test(p.benchCommit)) {
+      row('bench', el('span', null, p.benchCommit.slice(0, 10)));
+    }
     if (typeof p.runId === 'string' && /^[A-Za-z0-9._\-]+$/.test(p.runId) && /^\d{4}-\d{2}/.test(p.t || '')) {
       var raw = el('a', null, 'raw JSON');
       raw.href = RAW_BASE + p.t.slice(0, 4) + '/' + p.t.slice(5, 7) + '/' + p.runId + '.json';

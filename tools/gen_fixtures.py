@@ -41,6 +41,10 @@ S = [
 STATUS_ONLY = ("graph-oltp", "match-pattern", "M", ["jvm"])
 
 
+# the bench sources the (synthetic) numbers came from; the Exporter takes it from the run config
+BENCH_COMMIT = "b3a1c9e5d7f24680a1b2c3d4e5f60718293a4b5c"
+
+
 def commit_of(day):
     return "%07x%03x" % (0x1e1ad51 + day * 0x9137, day * 7 + 11)
 
@@ -56,7 +60,7 @@ def stamp(day, variant):
 
 
 def point(day, variant, median, status="ok"):
-    return {"t": stamp(day, variant), "commit": commit_of(day), "tag": TAGS.get(day), "median": median,
+    return {"t": stamp(day, variant), "commit": commit_of(day), "tag": TAGS.get(day), "benchCommit": BENCH_COMMIT, "median": median,
             "status": status, "runId": run_id(day, variant)}
 
 

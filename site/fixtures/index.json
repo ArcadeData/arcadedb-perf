@@ -1,0 +1,203 @@
+{
+ "generatedAt": "2026-11-17T05:00:00Z",
+ "workloads": [
+  {
+   "workload": "facet",
+   "cases": [
+    {
+     "case": "facet-count",
+     "scale": "M",
+     "metrics": [
+      {
+       "metric": "queries_per_s",
+       "unit": "queries/s",
+       "better": "higher",
+       "file": "series/facet/facet-count__M__queries_per_s.json"
+      },
+      {
+       "metric": "facet_lag_ms",
+       "unit": "ms",
+       "better": "lower",
+       "file": "series/facet/facet-count__M__facet_lag_ms.json"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "workload": "fulltext",
+   "cases": [
+    {
+     "case": "bm25-search",
+     "scale": "M",
+     "metrics": [
+      {
+       "metric": "queries_per_s",
+       "unit": "queries/s",
+       "better": "higher",
+       "file": "series/fulltext/bm25-search__M__queries_per_s.json"
+      }
+     ]
+    },
+    {
+     "case": "hybrid-search",
+     "scale": "M",
+     "metrics": [
+      {
+       "metric": "queries_per_s",
+       "unit": "queries/s",
+       "better": "higher",
+       "file": "series/fulltext/hybrid-search__M__queries_per_s.json"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "workload": "graph-analytics",
+   "cases": [
+    {
+     "case": "pagerank",
+     "scale": "M",
+     "metrics": [
+      {
+       "metric": "processing_s",
+       "unit": "s",
+       "better": "lower",
+       "file": "series/graph-analytics/pagerank__M__processing_s.json"
+      }
+     ]
+    },
+    {
+     "case": "wcc",
+     "scale": "M",
+     "metrics": [
+      {
+       "metric": "processing_s",
+       "unit": "s",
+       "better": "lower",
+       "file": "series/graph-analytics/wcc__M__processing_s.json"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "workload": "graph-oltp",
+   "cases": [
+    {
+     "case": "point-lookup",
+     "scale": "M",
+     "metrics": [
+      {
+       "metric": "queries_per_s",
+       "unit": "queries/s",
+       "better": "higher",
+       "file": "series/graph-oltp/point-lookup__M__queries_per_s.json"
+      }
+     ]
+    },
+    {
+     "case": "two-hop",
+     "scale": "M",
+     "metrics": [
+      {
+       "metric": "queries_per_s",
+       "unit": "queries/s",
+       "better": "higher",
+       "file": "series/graph-oltp/two-hop__M__queries_per_s.json"
+      },
+      {
+       "metric": "p95_ms",
+       "unit": "ms",
+       "better": "lower",
+       "file": "series/graph-oltp/two-hop__M__p95_ms.json"
+      }
+     ]
+    },
+    {
+     "case": "match-pattern",
+     "scale": "M",
+     "metrics": [
+      {
+       "metric": "_status",
+       "unit": null,
+       "better": null,
+       "file": "series/graph-oltp/match-pattern__M___status.json"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "workload": "ingestion",
+   "cases": [
+    {
+     "case": "bulk-import",
+     "scale": "M",
+     "metrics": [
+      {
+       "metric": "records_per_s",
+       "unit": "records/s",
+       "better": "higher",
+       "file": "series/ingestion/bulk-import__M__records_per_s.json"
+      },
+      {
+       "metric": "total_s",
+       "unit": "s",
+       "better": "lower",
+       "file": "series/ingestion/bulk-import__M__total_s.json"
+      }
+     ]
+    },
+    {
+     "case": "tx-insert-8t",
+     "scale": "M",
+     "metrics": [
+      {
+       "metric": "records_per_s",
+       "unit": "records/s",
+       "better": "higher",
+       "file": "series/ingestion/tx-insert-8t__M__records_per_s.json"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "workload": "vector",
+   "cases": [
+    {
+     "case": "knn-k10",
+     "scale": "M",
+     "metrics": [
+      {
+       "metric": "queries_per_s",
+       "unit": "queries/s",
+       "better": "higher",
+       "file": "series/vector/knn-k10__M__queries_per_s.json"
+      },
+      {
+       "metric": "recall_at_10",
+       "unit": "ratio",
+       "better": "higher",
+       "file": "series/vector/knn-k10__M__recall_at_10.json"
+      }
+     ]
+    },
+    {
+     "case": "knn-k100",
+     "scale": "M",
+     "metrics": [
+      {
+       "metric": "queries_per_s",
+       "unit": "queries/s",
+       "better": "higher",
+       "file": "series/vector/knn-k100__M__queries_per_s.json"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="color-scheme" content="light dark">
+<title>ArcadeDB Performance</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="index">
+<header class="top">
+  <h1>ArcadeDB Performance</h1>
+  <p class="sub">Nightly benchmarks on a dedicated machine. Each card compares the latest run with the previous release.</p>
+</header>
+<main>
+  <p id="status" class="status" role="status">Loading...</p>
+  <div id="cards" class="cards"></div>
+  <noscript><p class="status">This dashboard needs JavaScript.</p></noscript>
+</main>
+<footer class="foot"><span id="generated"></span></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js" integrity="sha384-o5uz97et3bErHvpKfD4Jz4n0JfhJDWABFuF4NP+iEEDxE1VwMWJ19QGR0lqFZnr6" crossorigin="anonymous"></script>
+<script src="app.js"></script>
+</body>
+</html>

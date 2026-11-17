@@ -1,0 +1,205 @@
+{
+ "metric": "processing_s",
+ "unit": "s",
+ "better": "lower",
+ "lines": [
+  {
+   "machineId": "perf-01",
+   "variant": "jvm",
+   "points": [
+    {
+     "t": "2026-10-25T03:00:00Z",
+     "commit": "1e1ad5100b",
+     "tag": null,
+     "median": 8.3604,
+     "status": "ok",
+     "runId": "2026-10-25T03-00-00Z-1e1ad5100b-jvm"
+    },
+    {
+     "t": "2026-10-26T03:00:00Z",
+     "commit": "1e23e88012",
+     "tag": null,
+     "median": 8.3892,
+     "status": "ok",
+     "runId": "2026-10-26T03-00-00Z-1e23e88012-jvm"
+    },
+    {
+     "t": "2026-10-27T03:00:00Z",
+     "commit": "1e2cfbf019",
+     "tag": null,
+     "median": 8.2438,
+     "status": "ok",
+     "runId": "2026-10-27T03-00-00Z-1e2cfbf019-jvm"
+    },
+    {
+     "t": "2026-10-28T03:00:00Z",
+     "commit": "1e360f6020",
+     "tag": null,
+     "median": 8.1101,
+     "status": "ok",
+     "runId": "2026-10-28T03-00-00Z-1e360f6020-jvm"
+    },
+    {
+     "t": "2026-10-29T03:00:00Z",
+     "commit": "1e3f22d027",
+     "tag": null,
+     "median": 8.0569,
+     "status": "ok",
+     "runId": "2026-10-29T03-00-00Z-1e3f22d027-jvm"
+    },
+    {
+     "t": "2026-10-30T03:00:00Z",
+     "commit": "1e4836402e",
+     "tag": null,
+     "median": 8.0737,
+     "status": "ok",
+     "runId": "2026-10-30T03-00-00Z-1e4836402e-jvm"
+    },
+    {
+     "t": "2026-10-31T03:00:00Z",
+     "commit": "1e5149b035",
+     "tag": "26.10.1",
+     "median": 8.1637,
+     "status": "ok",
+     "runId": "2026-10-31T03-00-00Z-1e5149b035-jvm"
+    },
+    {
+     "t": "2026-11-01T03:00:00Z",
+     "commit": "1e5a5d203c",
+     "tag": null,
+     "median": 8.122,
+     "status": "ok",
+     "runId": "2026-11-01T03-00-00Z-1e5a5d203c-jvm"
+    },
+    {
+     "t": "2026-11-02T03:00:00Z",
+     "commit": "1e63709043",
+     "tag": null,
+     "median": 8.0098,
+     "status": "ok",
+     "runId": "2026-11-02T03-00-00Z-1e63709043-jvm"
+    },
+    {
+     "t": "2026-11-03T03:00:00Z",
+     "commit": "1e6c84004a",
+     "tag": null,
+     "median": 7.8466,
+     "status": "ok",
+     "runId": "2026-11-03T03-00-00Z-1e6c84004a-jvm"
+    },
+    {
+     "t": "2026-11-04T03:00:00Z",
+     "commit": "1e75977051",
+     "tag": null,
+     "median": 7.7131,
+     "status": "ok",
+     "runId": "2026-11-04T03-00-00Z-1e75977051-jvm"
+    },
+    {
+     "t": "2026-11-05T03:00:00Z",
+     "commit": "1e7eaae058",
+     "tag": null,
+     "median": 7.5911,
+     "status": "ok",
+     "runId": "2026-11-05T03-00-00Z-1e7eaae058-jvm"
+    },
+    {
+     "t": "2026-11-06T03:00:00Z",
+     "commit": "1e87be505f",
+     "tag": null,
+     "median": 7.458,
+     "status": "ok",
+     "runId": "2026-11-06T03-00-00Z-1e87be505f-jvm"
+    },
+    {
+     "t": "2026-11-07T03:00:00Z",
+     "commit": "1e90d1c066",
+     "tag": null,
+     "median": 7.2828,
+     "status": "ok",
+     "runId": "2026-11-07T03-00-00Z-1e90d1c066-jvm"
+    },
+    {
+     "t": "2026-11-08T03:00:00Z",
+     "commit": "1e99e5306d",
+     "tag": null,
+     "median": 7.2481,
+     "status": "ok",
+     "runId": "2026-11-08T03-00-00Z-1e99e5306d-jvm"
+    },
+    {
+     "t": "2026-11-09T03:00:00Z",
+     "commit": "1ea2f8a074",
+     "tag": null,
+     "median": 7.1457,
+     "status": "ok",
+     "runId": "2026-11-09T03-00-00Z-1ea2f8a074-jvm"
+    },
+    {
+     "t": "2026-11-10T03:00:00Z",
+     "commit": "1eac0c107b",
+     "tag": "26.11.1",
+     "median": 7.2248,
+     "status": "ok",
+     "runId": "2026-11-10T03-00-00Z-1eac0c107b-jvm"
+    },
+    {
+     "t": "2026-11-11T03:00:00Z",
+     "commit": "1eb51f8082",
+     "tag": null,
+     "median": 7.1953,
+     "status": "ok",
+     "runId": "2026-11-11T03-00-00Z-1eb51f8082-jvm"
+    },
+    {
+     "t": "2026-11-12T03:00:00Z",
+     "commit": "1ebe32f089",
+     "tag": null,
+     "median": 7.2033,
+     "status": "ok",
+     "runId": "2026-11-12T03-00-00Z-1ebe32f089-jvm"
+    },
+    {
+     "t": "2026-11-13T03:00:00Z",
+     "commit": "1ec7466090",
+     "tag": null,
+     "median": 7.0632,
+     "status": "ok",
+     "runId": "2026-11-13T03-00-00Z-1ec7466090-jvm"
+    },
+    {
+     "t": "2026-11-14T03:00:00Z",
+     "commit": "1ed059d097",
+     "tag": null,
+     "median": 7.1145,
+     "status": "ok",
+     "runId": "2026-11-14T03-00-00Z-1ed059d097-jvm"
+    },
+    {
+     "t": "2026-11-15T03:00:00Z",
+     "commit": "1ed96d409e",
+     "tag": null,
+     "median": 7.0695,
+     "status": "ok",
+     "runId": "2026-11-15T03-00-00Z-1ed96d409e-jvm"
+    },
+    {
+     "t": "2026-11-16T03:00:00Z",
+     "commit": "1ee280b0a5",
+     "tag": null,
+     "median": 7.1219,
+     "status": "ok",
+     "runId": "2026-11-16T03-00-00Z-1ee280b0a5-jvm"
+    },
+    {
+     "t": "2026-11-17T03:00:00Z",
+     "commit": "1eeb9420ac",
+     "tag": null,
+     "median": 7.0982,
+     "status": "ok",
+     "runId": "2026-11-17T03-00-00Z-1eeb9420ac-jvm"
+    }
+   ]
+  }
+ ]
+}

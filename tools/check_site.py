@@ -43,8 +43,9 @@ if index:
                                 errors.append("%s: point lacks %s" % (m["file"], k))
                         if "benchCommit" not in p:
                             errors.append("%s: point lacks benchCommit" % m["file"])
-                        elif p["benchCommit"] is not None and not re.fullmatch(r"[0-9a-f]{7,40}", p["benchCommit"]):
-                            errors.append("%s: benchCommit %r is not a short or full sha" % (m["file"], p["benchCommit"]))
+                        # "unknown" is what the bench records when it was not told its own commit (no --bench-commit)
+                        elif p["benchCommit"] not in (None, "unknown") and not re.fullmatch(r"[0-9a-f]{7,40}", p["benchCommit"]):
+                            errors.append("%s: benchCommit %r is not a short or full sha, nor unknown" % (m["file"], p["benchCommit"]))
                         if p["median"] is None and p["status"] == "ok":
                             errors.append("%s: ok point without median" % m["file"])
 if latest:

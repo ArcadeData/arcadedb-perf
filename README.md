@@ -5,8 +5,9 @@ dashboard (GitHub Pages, Apache ECharts).
 
 ## What is measured
 
-Every night (scale `M`, 5 repetitions after 2 warm-ups) and on each release (scale `L`), the same commit is measured twice:
-as the JVM image and as the native image.
+Every night (scale `M`) and on each release (scale `M`, then scale `L`), the same commit is measured twice: as the JVM
+image and as the native image. Each case runs 2 warm-ups and then 5 repetitions; a chart point is the median of the 5. See
+[Scales](#scales) for what `M` and `L` mean.
 
 | Workload | What it covers | Main metrics |
 |---|---|---|
@@ -20,6 +21,48 @@ as the JVM image and as the native image.
 Every metric carries a unit and a direction (higher or lower is better). Peak RSS and on-disk size are recorded as well.
 A case that fails is kept as data: it shows as a red marker on the charts and the line is never interpolated across it.
 Different machines never share a line.
+
+## Scales
+
+A scale is the size of the data set every workload generates before it measures. The data is synthetic and deterministic
+(a fixed seed): two runs at the same scale load exactly the same records. Only runs at the same scale share a chart line,
+so each section of a workload page names its scale.
+
+| Scale | Used by | Typical length (both variants) |
+|---|---|---|
+| `XS` | the bench's own tests and quick local checks, never published | minutes |
+| `S` | local runs and dry runs of the runner | about 1 hour |
+| `M` | the nightly, and each release (so the nightly lines get a release point) | about 3 hours |
+| `L` | each release only: the release benchmark | several hours |
+
+What each workload loads at each scale:
+
+| Workload | What the scale sets | `XS` | `S` | `M` | `L` |
+|---|---|---:|---:|---:|---:|
+| `ingestion` | rows imported (`bulk-import-csv`) and inserted (`tx-insert-1t`, `tx-insert-8t`) | 10 k | 200 k | 2 M | 10 M |
+| `graph-oltp` | users | 1 k | 20 k | 200 k | 1 M |
+| | friendships (edges between users), plus 1 photo and 5 likes per user | 5 k | 200 k | 2 M | 10 M |
+| `vector` | 128-dimension vectors, cosine similarity | 2 k | 20 k | 200 k | 1 M |
+| | k=10 queries per repetition, checked against an exact brute-force answer | 50 | 200 | 1 k | 1 k |
+| `fulltext` | documents of 200 words, each with a 128-dimension embedding for `hybrid` | 2 k | 50 k | 500 k | 2 M |
+| `facet` | records | 10 k | 200 k | 2 M | 10 M |
+| `graph-analytics` | not scaled: always the LDBC Graphalytics graph `datagen-7_5-fb` (34 M edges), shown as its scale | | | | |
+
+Fixed at every scale:
+
+- **Queries per repetition**: 1,000 for `graph-oltp` and `fulltext`, 200 for `facet`, and the `vector` row above.
+- **Vectors** are drawn like real embeddings: 64 clusters in a 16-dimension latent space projected into 128 dimensions,
+  with a little noise. Queries come from the same space and run with the engine's default search settings, so the
+  `vector` charts show what a user gets out of the box. A `knn-k10` case whose `recall_at_10` falls under 0.9 is
+  recorded as failed, with its numbers, so a fast but wrong index never looks like an improvement.
+- **The server under test**: one container per variant, limited to 16 GB of memory with an 8 GB heap, pinned to the
+  P-cores (see [The machine](#the-machine)). A case that runs longer than 30 minutes is recorded as timed out.
+
+The sizes are defined in the bench sources of the ArcadeDB repository (`bench/src/main/java/com/arcadedb/bench/workload/`,
+one `*Workload` class per workload); each result file records the bench commit that produced it (`config.benchCommit`).
+A change of size or of data shape keeps the same chart line, but the points before and after it are not comparable: the
+tooltip of every point shows its bench commit. The vector data changed on 2026-11-20 (uniform vectors before, embedding-like
+after, ArcadeData/arcadedb#12614).
 
 ## The machine
 

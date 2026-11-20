@@ -59,8 +59,14 @@ def stamp(day, variant):
     return (START + timedelta(days=day, minutes=95 if variant == "native" else 0)).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
+def committed(day):
+    # the commit of a nightly lands the evening before it is measured; jvm and native share it
+    return (START + timedelta(days=day, hours=-9)).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
 def point(day, variant, median, status="ok"):
-    return {"t": stamp(day, variant), "commit": commit_of(day), "tag": TAGS.get(day), "benchCommit": BENCH_COMMIT, "median": median,
+    # t is the date of the commit (the X axis), runAt the start of the run
+    return {"t": committed(day), "runAt": stamp(day, variant), "commit": commit_of(day), "tag": TAGS.get(day), "benchCommit": BENCH_COMMIT, "median": median,
             "status": status, "runId": run_id(day, variant)}
 
 

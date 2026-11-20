@@ -72,6 +72,12 @@
     return Date.parse(p.t);
   }
 
+  // an ISO instant cut to the minute, in UTC: 2026-10-28 12:05 UTC
+  function isoMinute(iso) {
+    var ms = Date.parse(iso);
+    return isNaN(ms) ? String(iso) : new Date(ms).toISOString().slice(0, 16).replace('T', ' ') + ' UTC';
+  }
+
   // ---- percent change against the previous release ----
   function deltaInfo(entry, better) {
     var last = entry.last && entry.last.median;
@@ -162,11 +168,13 @@
       box.appendChild(d);
     };
     box.appendChild(el('strong', null, item.seriesLabel));
-    box.appendChild(el('div', null, new Date(dayMs(p)).toISOString().replace('.000Z', 'Z')));
+    // t is the date of the measured commit (the X axis); runAt is when it was measured. Older exports have only t.
+    box.appendChild(el('div', null, (p.runAt ? 'committed ' : '') + isoMinute(p.t)));
     var failed = p.median === null || p.median === undefined;
     row(metric, el('span', null, failed ? 'no value (' + p.status + ')' : fmt(p.median, unit)));
     if (p.status && p.status !== 'ok' && !failed) row('status', el('span', null, p.status));
     if (p.tag) row('release', el('span', null, p.tag));
+    if (typeof p.runAt === 'string' && p.runAt && p.runAt !== p.t) row('measured', el('span', null, isoMinute(p.runAt)));
     if (typeof p.commit === 'string' && /^[0-9a-f]{7,40}$/.test(p.commit)) {
       var a = el('a', null, p.commit);
       a.href = COMMIT_URL + p.commit;
@@ -179,9 +187,11 @@
     if (typeof p.benchCommit === 'string' && /^[0-9a-f]{7,40}$/.test(p.benchCommit)) {
       row('bench', el('span', null, p.benchCommit.slice(0, 10)));
     }
-    if (typeof p.runId === 'string' && /^[A-Za-z0-9._\-]+$/.test(p.runId) && /^\d{4}-\d{2}/.test(p.t || '')) {
+    // the raw file sits under the month of its run id (data/YYYY/MM), not of the commit
+    var runMonth = typeof p.runId === 'string' ? p.runId : '';
+    if (/^[A-Za-z0-9._\-]+$/.test(runMonth) && /^\d{4}-\d{2}/.test(runMonth)) {
       var raw = el('a', null, 'raw JSON');
-      raw.href = RAW_BASE + p.t.slice(0, 4) + '/' + p.t.slice(5, 7) + '/' + p.runId + '.json';
+      raw.href = RAW_BASE + runMonth.slice(0, 4) + '/' + runMonth.slice(5, 7) + '/' + p.runId + '.json';
       raw.target = '_blank';
       raw.rel = 'noopener noreferrer';
       row('data', raw);

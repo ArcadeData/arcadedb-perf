@@ -41,6 +41,9 @@ if index:
                         for k in ("t", "commit", "tag", "median", "status", "runId"):
                             if k not in p:
                                 errors.append("%s: point lacks %s" % (m["file"], k))
+                        # runAt (the run start) came with the commit-date X axis; older exports lack it
+                        if "runAt" in p and not re.match(r"\d{4}-\d{2}-\d{2}T", p["runAt"] or ""):
+                            errors.append("%s: runAt %r is not an ISO instant" % (m["file"], p["runAt"]))
                         if "benchCommit" not in p:
                             errors.append("%s: point lacks benchCommit" % m["file"])
                         # "unknown" is what the bench records when it was not told its own commit (no --bench-commit)

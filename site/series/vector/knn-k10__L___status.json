@@ -1,0 +1,1 @@
+{"metric":"_status","unit":null,"better":null,"lines":[{"machineId":"perf-01","variant":"jvm","points":[{"t":"2026-11-20T13:08:52.291Z","commit":"e5040d03399113b4f12081692f556160a7a9f696","tag":"26.10.2","benchCommit":"c686325fe99e1d4ccf79791fa7dd21308d281ea6","median":null,"status":"timeout","runId":"2026-11-20T13-08-52.291Z-e5040d0339-jvm"}]}]}

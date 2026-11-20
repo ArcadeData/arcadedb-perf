@@ -22,6 +22,10 @@ Every metric carries a unit and a direction (higher or lower is better). Peak RS
 A case that fails is kept as data: it shows as a red marker on the charts and the line is never interpolated across it.
 Different machines never share a line.
 
+The X axis is the date of the measured commit, not the day it was measured: a release benchmarked today sits at the date of
+its code, between the nightlies of the commits around it. The tooltip shows both dates. Runs recorded before 2026-11-21
+were dated afterwards, from the GitHub API.
+
 ## Scales
 
 A scale is the size of the data set every workload generates before it measures. The data is synthetic and deterministic

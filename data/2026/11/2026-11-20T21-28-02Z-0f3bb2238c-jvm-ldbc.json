@@ -7,6 +7,7 @@
   "source": "ldbc",
   "arcadedb": {
     "commit": "0f3bb2238c3cfc79c4a1c2cf2d8c5e36489652c0",
+    "commitDate": "2026-11-04T21:17:25Z",
     "version": "26.11.1",
     "variant": "jvm",
     "image": "embedded",

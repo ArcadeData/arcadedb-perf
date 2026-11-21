@@ -7,6 +7,7 @@
   "source": "bench",
   "arcadedb": {
     "commit": "fcc52e0f8efea58e0a7111844c11bf847452aa4b",
+    "commitDate": "2026-11-19T09:35:46Z",
     "version": "26.12.1-SNAPSHOT",
     "variant": "native",
     "image": "arcadedb-bench:fcc52e0f8efea58e0a7111844c11bf847452aa4b-native",

@@ -1,0 +1,1428 @@
+{
+  "schemaVersion": 1,
+  "runId": "2026-11-22T05-51-15.260Z-6a1f81ae23-native",
+  "startedAt": "2026-11-22T05:51:15.260172819Z",
+  "finishedAt": "2026-11-22T07:55:24.666048633Z",
+  "trigger": "nightly",
+  "source": "bench",
+  "arcadedb": {
+    "commit": "6a1f81ae232b81ffe5268f55bfe06c00d29947e0",
+    "version": "26.12.1-SNAPSHOT",
+    "variant": "native",
+    "image": "arcadedb-bench:6a1f81ae232b81ffe5268f55bfe06c00d29947e0-native",
+    "imageDigest": "sha256:4516150d5462f9f85d3792a5e91cf68768d274e6c92d0b757d885de5b64ecefa",
+    "revision": "6a1f81ae232b81ffe5268f55bfe06c00d29947e0",
+    "commitDate": "2026-11-21T23:42:13Z"
+  },
+  "machine": {
+    "id": "perf-01",
+    "cpu": "13th Gen Intel(R) Core(TM) i5-13500",
+    "cores": 8,
+    "memGb": 63,
+    "os": "Ubuntu 24.04.5 LTS",
+    "kernel": "6.8.0-149-generic",
+    "governor": "performance",
+    "noTurbo": "1"
+  },
+  "config": {
+    "heap": "8g",
+    "cpuset": "0-11",
+    "memLimitGb": 16,
+    "settings": {
+      "arcadedb.server.rootPassword": "***",
+      "arcadedb.backup.enabled": "false",
+      "arcadedb.server.plugins": "PrometheusMetricsPlugin",
+      "arcadedb.network.socketTimeout": "1800000"
+    },
+    "benchCommit": "b96a853eb050e5824a53501fc6ed50b91c7448ad",
+    "reps": 5,
+    "warmup": 2,
+    "timeoutMin": 30,
+    "seed": 42,
+    "serverCpus": "0-11",
+    "clientCpus": "12-19"
+  },
+  "results": [
+    {
+      "workload": "ingestion",
+      "case": "bulk-import-csv",
+      "scale": "M",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "records_per_s",
+          "unit": "records/s",
+          "better": "higher",
+          "median": 195199.4918276372,
+          "values": [
+            194960.13162837006,
+            194198.0852416992,
+            195199.4918276372,
+            195372.95360051747,
+            196584.73667241374
+          ]
+        },
+        {
+          "name": "total_s",
+          "unit": "s",
+          "better": "lower",
+          "median": 10.245928313,
+          "values": [
+            10.258507641,
+            10.298762717,
+            10.245928313,
+            10.236831471,
+            10.173729832
+          ]
+        },
+        {
+          "name": "disk_bytes",
+          "unit": "bytes",
+          "better": "lower",
+          "median": 1.53809672E8,
+          "values": [
+            1.53809672E8,
+            1.78467852E8,
+            1.18732616E8,
+            1.43242624E8,
+            1.66472357E8
+          ]
+        },
+        {
+          "name": "peak_rss_bytes",
+          "unit": "bytes",
+          "better": "lower",
+          "median": 2.077843456E9,
+          "values": [
+            2.274947072E9,
+            2.158895104E9,
+            2.077843456E9,
+            2.000654336E9,
+            1.916837888E9
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "ingestion",
+      "case": "tx-insert-1t",
+      "scale": "M",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "records_per_s",
+          "unit": "records/s",
+          "better": "higher",
+          "median": 29676.858413544644,
+          "values": [
+            29676.858413544644,
+            29510.27332421999,
+            29702.989448987937,
+            29499.26441581179,
+            29878.67133242903
+          ]
+        },
+        {
+          "name": "latency_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 16.034242,
+          "values": [
+            16.034242,
+            16.133134,
+            16.025998,
+            16.093663,
+            15.892819
+          ]
+        },
+        {
+          "name": "latency_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 22.220497,
+          "values": [
+            21.866301,
+            22.379541,
+            22.174657,
+            22.368359,
+            22.220497
+          ]
+        },
+        {
+          "name": "latency_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 29.357701,
+          "values": [
+            29.0476,
+            28.984178,
+            29.48414,
+            29.755127,
+            29.357701
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "ingestion",
+      "case": "tx-insert-8t",
+      "scale": "M",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "records_per_s",
+          "unit": "records/s",
+          "better": "higher",
+          "median": 66724.86939125603,
+          "values": [
+            66381.75168553684,
+            66724.86939125603,
+            66651.46529146213,
+            66763.81101829525,
+            66816.02043250583
+          ]
+        },
+        {
+          "name": "latency_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 57.584799,
+          "values": [
+            57.70909,
+            57.657945,
+            57.584799,
+            57.360962,
+            57.439794
+          ]
+        },
+        {
+          "name": "latency_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 102.780756,
+          "values": [
+            105.515521,
+            103.326195,
+            102.02675,
+            100.888353,
+            102.780756
+          ]
+        },
+        {
+          "name": "latency_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 181.671781,
+          "values": [
+            167.679784,
+            174.480011,
+            185.952312,
+            181.671781,
+            181.747548
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "graph-oltp",
+      "case": "point-lookup-cypher",
+      "scale": "M",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "queries_per_s",
+          "unit": "queries/s",
+          "better": "higher",
+          "median": 3847.1637858347626,
+          "values": [
+            3847.1637858347626,
+            3317.069850425691,
+            3925.542939488635,
+            3295.552406508762,
+            3851.354033246937
+          ]
+        },
+        {
+          "name": "latency_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.256117,
+          "values": [
+            0.249875,
+            0.297621,
+            0.248684,
+            0.305843,
+            0.256117
+          ]
+        },
+        {
+          "name": "latency_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.306343,
+          "values": [
+            0.299264,
+            0.340861,
+            0.306343,
+            0.360996,
+            0.291912
+          ]
+        },
+        {
+          "name": "latency_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.375959,
+          "values": [
+            0.375959,
+            0.377748,
+            0.348444,
+            0.414235,
+            0.368477
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "graph-oltp",
+      "case": "point-lookup-sql",
+      "scale": "M",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "queries_per_s",
+          "unit": "queries/s",
+          "better": "higher",
+          "median": 3769.7391742345626,
+          "values": [
+            3113.1347732391077,
+            3918.4804960219512,
+            3535.530236869283,
+            3812.2129808673035,
+            3769.7391742345626
+          ]
+        },
+        {
+          "name": "latency_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.264354,
+          "values": [
+            0.322445,
+            0.252868,
+            0.279912,
+            0.259487,
+            0.264354
+          ]
+        },
+        {
+          "name": "latency_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.281974,
+          "values": [
+            0.337228,
+            0.273621,
+            0.316648,
+            0.281974,
+            0.276595
+          ]
+        },
+        {
+          "name": "latency_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.323246,
+          "values": [
+            0.374924,
+            0.32196,
+            0.355044,
+            0.323246,
+            0.316469
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "graph-oltp",
+      "case": "hop1-cypher",
+      "scale": "M",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "queries_per_s",
+          "unit": "queries/s",
+          "better": "higher",
+          "median": 3677.8384060857397,
+          "values": [
+            3674.196665741479,
+            3677.8384060857397,
+            3862.981319649891,
+            3566.1896605078023,
+            3769.398512103818
+          ]
+        },
+        {
+          "name": "latency_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.270453,
+          "values": [
+            0.270453,
+            0.271479,
+            0.253713,
+            0.272352,
+            0.262202
+          ]
+        },
+        {
+          "name": "latency_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.290822,
+          "values": [
+            0.290822,
+            0.299154,
+            0.282956,
+            0.317333,
+            0.278022
+          ]
+        },
+        {
+          "name": "latency_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.383386,
+          "values": [
+            0.361008,
+            0.361573,
+            0.401085,
+            0.389857,
+            0.383386
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "graph-oltp",
+      "case": "hop1-sql",
+      "scale": "M",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "queries_per_s",
+          "unit": "queries/s",
+          "better": "higher",
+          "median": 2906.4447549593137,
+          "values": [
+            2841.949874313346,
+            2906.4447549593137,
+            3092.072825686547,
+            3099.1941242998437,
+            2651.0633139241563
+          ]
+        },
+        {
+          "name": "latency_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.344024,
+          "values": [
+            0.348086,
+            0.344024,
+            0.317927,
+            0.318359,
+            0.36439
+          ]
+        },
+        {
+          "name": "latency_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.379163,
+          "values": [
+            0.379163,
+            0.392967,
+            0.360489,
+            0.347731,
+            0.422269
+          ]
+        },
+        {
+          "name": "latency_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.446745,
+          "values": [
+            0.446745,
+            0.446865,
+            0.43899,
+            0.442352,
+            0.491461
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "graph-oltp",
+      "case": "hop2-cypher",
+      "scale": "M",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "queries_per_s",
+          "unit": "queries/s",
+          "better": "higher",
+          "median": 2246.699564639052,
+          "values": [
+            2246.699564639052,
+            2244.8010396697246,
+            2253.1091593963583,
+            2273.2376197393532,
+            2189.450004225529
+          ]
+        },
+        {
+          "name": "latency_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.439178,
+          "values": [
+            0.439458,
+            0.439178,
+            0.438351,
+            0.436505,
+            0.448586
+          ]
+        },
+        {
+          "name": "latency_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.560356,
+          "values": [
+            0.560356,
+            0.561438,
+            0.559219,
+            0.54201,
+            0.586247
+          ]
+        },
+        {
+          "name": "latency_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.629455,
+          "values": [
+            0.639605,
+            0.627851,
+            0.629455,
+            0.601044,
+            0.674832
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "graph-oltp",
+      "case": "hop2-sql",
+      "scale": "M",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "queries_per_s",
+          "unit": "queries/s",
+          "better": "higher",
+          "median": 1882.9656590880395,
+          "values": [
+            1882.9656590880395,
+            1878.3149335449455,
+            1779.2067259138355,
+            1918.7241902455787,
+            1936.555682073105
+          ]
+        },
+        {
+          "name": "latency_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.522849,
+          "values": [
+            0.525663,
+            0.522849,
+            0.533293,
+            0.515357,
+            0.513752
+          ]
+        },
+        {
+          "name": "latency_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.645841,
+          "values": [
+            0.645841,
+            0.652087,
+            0.678924,
+            0.641093,
+            0.624293
+          ]
+        },
+        {
+          "name": "latency_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.713714,
+          "values": [
+            0.713714,
+            0.761966,
+            0.80822,
+            0.685417,
+            0.696345
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "graph-oltp",
+      "case": "hop3-cypher",
+      "scale": "M",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "queries_per_s",
+          "unit": "queries/s",
+          "better": "higher",
+          "median": 431.28452702730783,
+          "values": [
+            426.0446404010069,
+            421.7729170751028,
+            447.1283048692766,
+            437.3298872018113,
+            431.28452702730783
+          ]
+        },
+        {
+          "name": "latency_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 2.276512,
+          "values": [
+            2.296507,
+            2.31273,
+            2.197759,
+            2.243096,
+            2.276512
+          ]
+        },
+        {
+          "name": "latency_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 3.373939,
+          "values": [
+            3.43087,
+            3.461638,
+            3.313114,
+            3.373939,
+            3.361226
+          ]
+        },
+        {
+          "name": "latency_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 3.900696,
+          "values": [
+            4.130366,
+            4.104601,
+            3.805178,
+            3.899758,
+            3.900696
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "graph-oltp",
+      "case": "hop3-sql",
+      "scale": "M",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "queries_per_s",
+          "unit": "queries/s",
+          "better": "higher",
+          "median": 407.8944606921883,
+          "values": [
+            399.7413323406349,
+            407.8944606921883,
+            389.3997617115665,
+            426.7366654995305,
+            412.4152041140917
+          ]
+        },
+        {
+          "name": "latency_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 2.397351,
+          "values": [
+            2.417757,
+            2.397351,
+            2.504953,
+            2.297404,
+            2.369731
+          ]
+        },
+        {
+          "name": "latency_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 3.583559,
+          "values": [
+            3.730071,
+            3.583559,
+            3.742485,
+            3.430661,
+            3.526424
+          ]
+        },
+        {
+          "name": "latency_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 4.168921,
+          "values": [
+            4.221149,
+            4.168921,
+            4.347949,
+            4.059987,
+            4.162709
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "graph-oltp",
+      "case": "pattern-like-cypher",
+      "scale": "M",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "queries_per_s",
+          "unit": "queries/s",
+          "better": "higher",
+          "median": 9.959461416290267,
+          "values": [
+            9.951846859237921,
+            9.959461416290267,
+            9.942048307064901,
+            9.961797710162868,
+            9.968224712040382
+          ]
+        },
+        {
+          "name": "latency_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 6.557588,
+          "values": [
+            6.557588,
+            6.569197,
+            6.5658,
+            6.536458,
+            6.445718
+          ]
+        },
+        {
+          "name": "latency_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 452.270223,
+          "values": [
+            452.270223,
+            453.297926,
+            453.569162,
+            452.147384,
+            449.346145
+          ]
+        },
+        {
+          "name": "latency_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 735.641788,
+          "values": [
+            735.194092,
+            760.690789,
+            735.641788,
+            735.331894,
+            737.355204
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "graph-oltp",
+      "case": "pattern-like-sql",
+      "scale": "M",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "queries_per_s",
+          "unit": "queries/s",
+          "better": "higher",
+          "median": 11.730038327055203,
+          "values": [
+            11.692212641511928,
+            11.730038327055203,
+            11.708583807101466,
+            11.735052286183034,
+            11.744083371432001
+          ]
+        },
+        {
+          "name": "latency_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 74.208218,
+          "values": [
+            75.025585,
+            74.208218,
+            73.656897,
+            74.785362,
+            74.054179
+          ]
+        },
+        {
+          "name": "latency_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 183.956468,
+          "values": [
+            183.956468,
+            182.748941,
+            185.410059,
+            183.512807,
+            186.927625
+          ]
+        },
+        {
+          "name": "latency_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 261.418327,
+          "values": [
+            269.498441,
+            258.330837,
+            258.27433,
+            267.28186,
+            261.418327
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "vector",
+      "case": "build",
+      "scale": "M",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "build_s",
+          "unit": "s",
+          "better": "lower",
+          "median": 37.148114964,
+          "values": [
+            37.195210114,
+            36.609138923,
+            37.148114964,
+            36.995901684,
+            37.330726194
+          ]
+        },
+        {
+          "name": "disk_bytes",
+          "unit": "bytes",
+          "better": "lower",
+          "median": 1.54052316E8,
+          "values": [
+            1.54052335E8,
+            1.54052305E8,
+            1.54052335E8,
+            1.54052297E8,
+            1.54052316E8
+          ]
+        },
+        {
+          "name": "peak_rss_bytes",
+          "unit": "bytes",
+          "better": "lower",
+          "median": 1.695903744E9,
+          "values": [
+            2.094329856E9,
+            1.818677248E9,
+            1.695903744E9,
+            1.532960768E9,
+            1.307348992E9
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "vector",
+      "case": "knn-k10",
+      "scale": "M",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "queries_per_s",
+          "unit": "queries/s",
+          "better": "higher",
+          "median": 962.5376366894645,
+          "values": [
+            960.5641511601267,
+            959.6078661486515,
+            981.3030225315564,
+            962.5376366894645,
+            968.6424667619539
+          ]
+        },
+        {
+          "name": "latency_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 1.017725,
+          "values": [
+            1.025972,
+            1.0236,
+            1.009311,
+            1.017725,
+            1.014086
+          ]
+        },
+        {
+          "name": "latency_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 1.116363,
+          "values": [
+            1.131569,
+            1.116363,
+            1.072748,
+            1.12861,
+            1.111636
+          ]
+        },
+        {
+          "name": "latency_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 1.267574,
+          "values": [
+            1.268114,
+            1.267574,
+            1.192039,
+            1.350834,
+            1.243178
+          ]
+        },
+        {
+          "name": "recall_at_10",
+          "unit": "ratio",
+          "better": "higher",
+          "median": 0.9967999999999998,
+          "values": [
+            0.9967999999999998,
+            0.9967999999999998,
+            0.9967999999999998,
+            0.9967999999999998,
+            0.9967999999999998
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "fulltext",
+      "case": "build",
+      "scale": "M",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [],
+      "status": "timeout",
+      "error": "case exceeded 1800000 ms"
+    },
+    {
+      "workload": "fulltext",
+      "case": "bm25-single-term",
+      "scale": "M",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "queries_per_s",
+          "unit": "queries/s",
+          "better": "higher",
+          "median": 268.8137481656056,
+          "values": [
+            263.1967306611725,
+            272.615236167581,
+            268.8137481656056,
+            267.4932257273711,
+            271.62180487237345
+          ]
+        },
+        {
+          "name": "latency_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 3.634818,
+          "values": [
+            3.736445,
+            3.630758,
+            3.631092,
+            3.686713,
+            3.634818
+          ]
+        },
+        {
+          "name": "latency_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 4.043953,
+          "values": [
+            4.110006,
+            3.995788,
+            4.108925,
+            3.985891,
+            4.043953
+          ]
+        },
+        {
+          "name": "latency_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 4.197013,
+          "values": [
+            4.197013,
+            4.082065,
+            4.220596,
+            4.159424,
+            4.393835
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "fulltext",
+      "case": "bm25-multi-term",
+      "scale": "M",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "queries_per_s",
+          "unit": "queries/s",
+          "better": "higher",
+          "median": 54.30010911649281,
+          "values": [
+            54.43026384833683,
+            54.363618632487466,
+            54.26973374221057,
+            54.30010911649281,
+            53.68062919081793
+          ]
+        },
+        {
+          "name": "latency_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 18.253284,
+          "values": [
+            18.233797,
+            18.253284,
+            18.304704,
+            18.218128,
+            18.292638
+          ]
+        },
+        {
+          "name": "latency_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 18.712255,
+          "values": [
+            18.712255,
+            18.692681,
+            18.741349,
+            18.699009,
+            18.719795
+          ]
+        },
+        {
+          "name": "latency_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 18.990289,
+          "values": [
+            19.26083,
+            18.949315,
+            18.974342,
+            22.405911,
+            18.990289
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "fulltext",
+      "case": "bm25-phrase",
+      "scale": "M",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "queries_per_s",
+          "unit": "queries/s",
+          "better": "higher",
+          "median": 38.14155458661322,
+          "values": [
+            38.22005592939452,
+            38.24846588932695,
+            38.043284375958585,
+            37.74564195830146,
+            38.14155458661322
+          ]
+        },
+        {
+          "name": "latency_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 25.990988,
+          "values": [
+            25.990988,
+            25.932019,
+            26.125343,
+            26.051402,
+            25.978782
+          ]
+        },
+        {
+          "name": "latency_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 27.314901,
+          "values": [
+            27.178091,
+            27.270317,
+            27.394726,
+            27.314901,
+            27.434958
+          ]
+        },
+        {
+          "name": "latency_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 38.016127,
+          "values": [
+            39.491229,
+            38.406009,
+            38.016127,
+            37.60875,
+            36.904946
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "fulltext",
+      "case": "hybrid",
+      "scale": "M",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "queries_per_s",
+          "unit": "queries/s",
+          "better": "higher",
+          "median": 161.22659030759522,
+          "values": [
+            158.12399168807386,
+            163.6788073992048,
+            161.22659030759522,
+            159.54889831189752,
+            164.8563899957383
+          ]
+        },
+        {
+          "name": "latency_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 6.140672,
+          "values": [
+            6.283057,
+            6.036454,
+            6.140672,
+            6.191384,
+            6.016882
+          ]
+        },
+        {
+          "name": "latency_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 6.733342,
+          "values": [
+            6.962557,
+            6.678735,
+            6.733342,
+            6.961849,
+            6.644132
+          ]
+        },
+        {
+          "name": "latency_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 7.077622,
+          "values": [
+            7.268828,
+            7.077622,
+            7.06093,
+            7.448047,
+            6.91891
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "facet",
+      "case": "facet-query-after-load",
+      "scale": "M",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "queries_per_s",
+          "unit": "queries/s",
+          "better": "higher",
+          "median": 1.6718108718241265,
+          "values": [
+            1.6718108718241265,
+            1.6699663072665358,
+            1.669081078404254,
+            1.6722950774877268,
+            1.6761718669460073
+          ]
+        },
+        {
+          "name": "latency_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 174.608576,
+          "values": [
+            184.82908,
+            166.911684,
+            354.871045,
+            166.586121,
+            174.608576
+          ]
+        },
+        {
+          "name": "latency_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 1156.957778,
+          "values": [
+            1197.557931,
+            1149.410466,
+            1086.394976,
+            1169.482423,
+            1156.957778
+          ]
+        },
+        {
+          "name": "latency_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 1220.657516,
+          "values": [
+            1220.657516,
+            1230.597311,
+            1236.22455,
+            1218.247336,
+            1213.023736
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "facet",
+      "case": "facet-under-ingest",
+      "scale": "M",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "queries_per_s",
+          "unit": "queries/s",
+          "better": "higher",
+          "median": 1.1425549758802471,
+          "values": [
+            1.151015008831772,
+            1.1425549758802471,
+            1.1383637417165515,
+            1.152713799625688,
+            1.1396754488626215
+          ]
+        },
+        {
+          "name": "latency_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 525.94159,
+          "values": [
+            483.62877,
+            528.038675,
+            557.579478,
+            525.94159,
+            489.066152
+          ]
+        },
+        {
+          "name": "latency_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 1715.12598,
+          "values": [
+            1708.697633,
+            1715.832948,
+            1715.12598,
+            1698.124121,
+            1716.721732
+          ]
+        },
+        {
+          "name": "latency_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 1764.256124,
+          "values": [
+            1764.109706,
+            1762.140655,
+            1764.256124,
+            1855.180653,
+            1811.795312
+          ]
+        },
+        {
+          "name": "ingest_records_per_s",
+          "unit": "records/s",
+          "better": "higher",
+          "median": 2429.1387769322996,
+          "values": [
+            2428.364245051089,
+            2429.1387769322996,
+            2430.4135696361213,
+            2432.4882451198723,
+            2398.9348514635835
+          ]
+        },
+        {
+          "name": "facet_lag_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 290.0,
+          "values": [
+            16.0,
+            381.0,
+            22.0,
+            625.0,
+            290.0
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

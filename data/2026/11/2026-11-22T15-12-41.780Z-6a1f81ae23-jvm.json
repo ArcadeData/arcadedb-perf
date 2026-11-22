@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 1,
+  "runId": "2026-11-22T15-12-41.780Z-6a1f81ae23-jvm",
+  "startedAt": "2026-11-22T15:12:41.780212298Z",
+  "finishedAt": "2026-11-22T15:48:49.816674424Z",
+  "trigger": "manual",
+  "source": "bench",
+  "arcadedb": {
+    "commit": "6a1f81ae232b81ffe5268f55bfe06c00d29947e0",
+    "version": "26.12.1-SNAPSHOT",
+    "variant": "jvm",
+    "image": "arcadedb-bench:6a1f81ae232b81ffe5268f55bfe06c00d29947e0-jvm",
+    "imageDigest": "sha256:651bfe9172a1a2ada0c7185293598242f15417836e8d0d3a8907c34dd99e99f0",
+    "revision": "unknown",
+    "commitDate": "2026-11-21T23:42:13Z"
+  },
+  "machine": {
+    "id": "perf-01",
+    "cpu": "13th Gen Intel(R) Core(TM) i5-13500",
+    "cores": 8,
+    "memGb": 63,
+    "os": "Ubuntu 24.04.5 LTS",
+    "kernel": "6.8.0-149-generic",
+    "governor": "performance",
+    "noTurbo": "1"
+  },
+  "config": {
+    "heap": "8g",
+    "cpuset": "0-11",
+    "memLimitGb": 16,
+    "settings": {
+      "arcadedb.server.rootPassword": "***",
+      "arcadedb.backup.enabled": "false",
+      "arcadedb.server.plugins": "PrometheusMetricsPlugin",
+      "arcadedb.network.socketTimeout": "1800000"
+    },
+    "benchCommit": "50ea4e9b140375d4ad01ba0d2b9ba671edb84994",
+    "reps": 5,
+    "warmup": 2,
+    "timeoutMin": 30,
+    "prepareTimeoutMin": 30,
+    "caseTimeoutMin": 120,
+    "seed": 42,
+    "serverCpus": "0-11",
+    "clientCpus": "12-19"
+  },
+  "results": [
+    {
+      "workload": "ingestion",
+      "case": "bulk-import-csv",
+      "scale": "L",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "records_per_s",
+          "unit": "records/s",
+          "better": "higher",
+          "median": 447359.76129664766,
+          "values": [
+            449295.7467405465,
+            447359.76129664766,
+            447886.1378041538,
+            446986.0390268192,
+            446779.12547995563
+          ]
+        },
+        {
+          "name": "total_s",
+          "unit": "s",
+          "better": "lower",
+          "median": 22.353373873,
+          "values": [
+            22.257054674,
+            22.353373873,
+            22.327103154,
+            22.372063391,
+            22.382424401
+          ]
+        },
+        {
+          "name": "disk_bytes",
+          "unit": "bytes",
+          "better": "lower",
+          "median": 5.91290078E8,
+          "values": [
+            5.8112243E8,
+            6.3141858E8,
+            5.61382398E8,
+            6.1974491E8,
+            5.91290078E8
+          ]
+        },
+        {
+          "name": "peak_rss_bytes",
+          "unit": "bytes",
+          "better": "lower",
+          "median": 8.771158016E9,
+          "values": [
+            8.771158016E9,
+            8.769974272E9,
+            8.7729152E9,
+            8.769470464E9,
+            8.7730176E9
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "ingestion",
+      "case": "tx-insert-1t",
+      "scale": "L",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "records_per_s",
+          "unit": "records/s",
+          "better": "higher",
+          "median": 49526.37928025951,
+          "values": [
+            49526.37928025951,
+            49496.923454250486,
+            49607.576476599796,
+            49626.78012097808,
+            49332.30234837335
+          ]
+        },
+        {
+          "name": "latency_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 10.040397,
+          "values": [
+            10.045961,
+            10.040397,
+            10.023547,
+            10.021564,
+            10.080836
+          ]
+        },
+        {
+          "name": "latency_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 10.657078,
+          "values": [
+            10.657078,
+            10.687276,
+            10.651662,
+            10.598738,
+            10.672245
+          ]
+        },
+        {
+          "name": "latency_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 11.201462,
+          "values": [
+            11.151795,
+            11.247126,
+            11.201462,
+            11.174696,
+            11.360385
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "ingestion",
+      "case": "tx-insert-8t",
+      "scale": "L",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "records_per_s",
+          "unit": "records/s",
+          "better": "higher",
+          "median": 154409.97525492366,
+          "values": [
+            153743.5465716229,
+            152686.10391111238,
+            154855.5582562833,
+            154444.22824478202,
+            154409.97525492366
+          ]
+        },
+        {
+          "name": "latency_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 26.14976,
+          "values": [
+            26.14976,
+            26.618139,
+            26.003785,
+            26.299647,
+            26.021054
+          ]
+        },
+        {
+          "name": "latency_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 40.017126,
+          "values": [
+            40.00855,
+            40.088016,
+            39.839824,
+            40.017126,
+            40.11863
+          ]
+        },
+        {
+          "name": "latency_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 43.376428,
+          "values": [
+            43.994866,
+            43.376428,
+            43.069567,
+            42.941672,
+            44.071978
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

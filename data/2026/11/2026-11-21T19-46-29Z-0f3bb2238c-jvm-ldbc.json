@@ -1,19 +1,19 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-11-20T21-28-02Z-0f3bb2238c-jvm-ldbc",
-  "startedAt": "2026-11-20T21:28:02Z",
-  "finishedAt": "2026-11-20T21:28:02Z",
+  "runId": "2026-11-21T19-46-29Z-0f3bb2238c-jvm-ldbc",
+  "startedAt": "2026-11-21T19:46:29Z",
+  "finishedAt": "2026-11-21T19:46:29Z",
   "trigger": "release",
   "source": "ldbc",
   "arcadedb": {
     "commit": "0f3bb2238c3cfc79c4a1c2cf2d8c5e36489652c0",
-    "commitDate": "2026-11-04T21:17:25Z",
     "version": "26.11.1",
     "variant": "jvm",
     "image": "embedded",
     "imageDigest": "n/a",
     "revision": "0f3bb2238c3cfc79c4a1c2cf2d8c5e36489652c0",
-    "tag": "26.11.1"
+    "tag": "26.11.1",
+    "commitDate": "2026-11-04T21:17:25Z"
   },
   "machine": {
     "id": "perf-01",
@@ -29,7 +29,7 @@
     "dataset": "datagen-7_5-fb",
     "framework": "graphalytics",
     "mode1": true,
-    "benchCommit": "2e8db454b7191513c033f7c939feaae38bbc5342"
+    "benchCommit": "4dd5b98783b5c6fff43765a4cbd7a594d1a626fb"
   },
   "results": [
     {
@@ -44,51 +44,9 @@
           "name": "processing_s",
           "unit": "s",
           "better": "lower",
-          "median": 9.338,
+          "median": 9.413,
           "values": [
-            9.338
-          ]
-        }
-      ],
-      "status": "ok",
-      "error": null
-    },
-    {
-      "workload": "graph-analytics",
-      "case": "olap-cdlp",
-      "scale": "datagen-7_5-fb",
-      "params": {},
-      "reps": 1,
-      "warmup": 0,
-      "metrics": [
-        {
-          "name": "processing_s",
-          "unit": "s",
-          "better": "lower",
-          "median": 32.153,
-          "values": [
-            32.153
-          ]
-        }
-      ],
-      "status": "ok",
-      "error": null
-    },
-    {
-      "workload": "graph-analytics",
-      "case": "olap-pr",
-      "scale": "datagen-7_5-fb",
-      "params": {},
-      "reps": 1,
-      "warmup": 0,
-      "metrics": [
-        {
-          "name": "processing_s",
-          "unit": "s",
-          "better": "lower",
-          "median": 8.913,
-          "values": [
-            8.913
+            9.413
           ]
         }
       ],
@@ -107,9 +65,9 @@
           "name": "processing_s",
           "unit": "s",
           "better": "lower",
-          "median": 20.694,
+          "median": 20.672,
           "values": [
-            20.694
+            20.672
           ]
         }
       ],
@@ -128,9 +86,9 @@
           "name": "processing_s",
           "unit": "s",
           "better": "lower",
-          "median": 21.92,
+          "median": 20.637,
           "values": [
-            21.92
+            20.637
           ]
         }
       ],
@@ -149,9 +107,51 @@
           "name": "processing_s",
           "unit": "s",
           "better": "lower",
-          "median": 11.853,
+          "median": 11.668,
           "values": [
-            11.853
+            11.668
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "graph-analytics",
+      "case": "olap-pr",
+      "scale": "datagen-7_5-fb",
+      "params": {},
+      "reps": 1,
+      "warmup": 0,
+      "metrics": [
+        {
+          "name": "processing_s",
+          "unit": "s",
+          "better": "lower",
+          "median": 8.559,
+          "values": [
+            8.559
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "graph-analytics",
+      "case": "olap-cdlp",
+      "scale": "datagen-7_5-fb",
+      "params": {},
+      "reps": 1,
+      "warmup": 0,
+      "metrics": [
+        {
+          "name": "processing_s",
+          "unit": "s",
+          "better": "lower",
+          "median": 32.281,
+          "values": [
+            32.281
           ]
         }
       ],
@@ -170,51 +170,9 @@
           "name": "processing_s",
           "unit": "s",
           "better": "lower",
-          "median": 75.329,
+          "median": 72.446,
           "values": [
-            75.329
-          ]
-        }
-      ],
-      "status": "ok",
-      "error": null
-    },
-    {
-      "workload": "graph-analytics",
-      "case": "oltp-cdlp",
-      "scale": "datagen-7_5-fb",
-      "params": {},
-      "reps": 1,
-      "warmup": 0,
-      "metrics": [
-        {
-          "name": "processing_s",
-          "unit": "s",
-          "better": "lower",
-          "median": 106.252,
-          "values": [
-            106.252
-          ]
-        }
-      ],
-      "status": "ok",
-      "error": null
-    },
-    {
-      "workload": "graph-analytics",
-      "case": "oltp-wcc",
-      "scale": "datagen-7_5-fb",
-      "params": {},
-      "reps": 1,
-      "warmup": 0,
-      "metrics": [
-        {
-          "name": "processing_s",
-          "unit": "s",
-          "better": "lower",
-          "median": 122.513,
-          "values": [
-            122.513
+            72.446
           ]
         }
       ],
@@ -233,9 +191,51 @@
           "name": "processing_s",
           "unit": "s",
           "better": "lower",
-          "median": 86.559,
+          "median": 86.333,
           "values": [
-            86.559
+            86.333
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "graph-analytics",
+      "case": "oltp-wcc",
+      "scale": "datagen-7_5-fb",
+      "params": {},
+      "reps": 1,
+      "warmup": 0,
+      "metrics": [
+        {
+          "name": "processing_s",
+          "unit": "s",
+          "better": "lower",
+          "median": 123.957,
+          "values": [
+            123.957
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "graph-analytics",
+      "case": "oltp-cdlp",
+      "scale": "datagen-7_5-fb",
+      "params": {},
+      "reps": 1,
+      "warmup": 0,
+      "metrics": [
+        {
+          "name": "processing_s",
+          "unit": "s",
+          "better": "lower",
+          "median": 95.721,
+          "values": [
+            95.721
           ]
         }
       ],
@@ -254,9 +254,9 @@
           "name": "processing_s",
           "unit": "s",
           "better": "lower",
-          "median": 167.9,
+          "median": 169.597,
           "values": [
-            167.9
+            169.597
           ]
         }
       ],
@@ -275,9 +275,9 @@
           "name": "processing_s",
           "unit": "s",
           "better": "lower",
-          "median": 75.714,
+          "median": 75.377,
           "values": [
-            75.714
+            75.377
           ]
         }
       ],

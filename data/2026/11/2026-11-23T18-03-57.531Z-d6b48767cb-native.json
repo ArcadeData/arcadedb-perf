@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 2,
+  "runId": "2026-11-23T18-03-57.531Z-d6b48767cb-native",
+  "startedAt": "2026-11-23T18:03:57.531089804Z",
+  "finishedAt": "2026-11-23T21:37:05.751528494Z",
+  "trigger": "manual",
+  "source": "bench",
+  "arcadedb": {
+    "commit": "d6b48767cb84c05f9b03e52fbb23345b4fd42288",
+    "version": "26.12.1-SNAPSHOT",
+    "variant": "native",
+    "image": "arcadedb-bench:d6b48767cb84c05f9b03e52fbb23345b4fd42288-native",
+    "imageDigest": "sha256:95ea355581515726b4e4c597c9da7b8e7a0dc4e20f6055371a48c062cbdddc17",
+    "revision": "d6b48767cb84c05f9b03e52fbb23345b4fd42288",
+    "commitDate": "2026-11-22T16:48:09Z"
+  },
+  "machine": {
+    "id": "perf-01",
+    "cpu": "13th Gen Intel(R) Core(TM) i5-13500",
+    "cores": 8,
+    "memGb": 63,
+    "os": "Ubuntu 24.04.5 LTS",
+    "kernel": "6.8.0-149-generic",
+    "governor": "performance",
+    "noTurbo": "1"
+  },
+  "config": {
+    "heap": "8g",
+    "cpuset": "0-11",
+    "memLimitGb": 16,
+    "settings": {
+      "arcadedb.server.rootPassword": "***",
+      "arcadedb.backup.enabled": "false",
+      "arcadedb.server.plugins": "PrometheusMetricsPlugin",
+      "arcadedb.network.socketTimeout": "1800000"
+    },
+    "benchCommit": "58794ff1654ddfc8fc2ded8f9ae91e892be2545b",
+    "reps": 3,
+    "warmup": 1,
+    "timeoutMin": 30,
+    "prepareTimeoutMin": 30,
+    "caseTimeoutMin": 120,
+    "seed": 42,
+    "serverCpus": "0-11",
+    "clientCpus": "12-19"
+  },
+  "complete": true,
+  "diagnostics": {
+    "fulltext": {
+      "threads": 55
+    }
+  },
+  "results": [
+    {
+      "workload": "fulltext",
+      "case": "build",
+      "scale": "L",
+      "params": {},
+      "reps": 3,
+      "warmup": 1,
+      "metrics": [
+        {
+          "name": "build_s",
+          "unit": "s",
+          "better": "lower",
+          "median": 906.323825754,
+          "values": [
+            906.605472655,
+            906.323825754,
+            906.217462094
+          ]
+        },
+        {
+          "name": "disk_bytes",
+          "unit": "bytes",
+          "better": "lower",
+          "median": 8.127560893E9,
+          "values": [
+            8.127560892E9,
+            8.127560893E9,
+            8.127560894E9
+          ]
+        },
+        {
+          "name": "peak_rss_bytes",
+          "unit": "bytes",
+          "better": "lower",
+          "median": 6.255775744E9,
+          "values": [
+            6.2496768E9,
+            6.293151744E9,
+            6.255775744E9
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null,
+      "notes": {
+        "stallsWithoutDump": 9
+      }
+    },
+    {
+      "workload": "fulltext",
+      "case": "bm25-single-term",
+      "scale": "L",
+      "params": {},
+      "reps": 3,
+      "warmup": 1,
+      "metrics": [],
+      "status": "timeout",
+      "error": "warm-up 1/1 exceeded 1800000 ms"
+    },
+    {
+      "workload": "fulltext",
+      "case": "bm25-multi-term",
+      "scale": "L",
+      "params": {},
+      "reps": 3,
+      "warmup": 1,
+      "metrics": [],
+      "status": "timeout",
+      "error": "warm-up 1/1 exceeded 1800000 ms"
+    },
+    {
+      "workload": "fulltext",
+      "case": "bm25-phrase",
+      "scale": "L",
+      "params": {},
+      "reps": 3,
+      "warmup": 1,
+      "metrics": [],
+      "status": "timeout",
+      "error": "warm-up 1/1 exceeded 1800000 ms"
+    },
+    {
+      "workload": "fulltext",
+      "case": "hybrid",
+      "scale": "L",
+      "params": {},
+      "reps": 3,
+      "warmup": 1,
+      "metrics": [],
+      "status": "timeout",
+      "error": "warm-up 1/1 exceeded 1800000 ms",
+      "notes": {
+        "stallsWithoutDump": 1
+      }
+    }
+  ]
+}

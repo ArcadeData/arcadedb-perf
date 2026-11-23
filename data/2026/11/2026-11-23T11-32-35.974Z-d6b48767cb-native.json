@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "runId": "2026-11-23T11-32-35.974Z-d6b48767cb-native",
+  "startedAt": "2026-11-23T11:32:35.974156249Z",
+  "finishedAt": "2026-11-23T14:22:38.977340392Z",
+  "trigger": "manual",
+  "source": "bench",
+  "arcadedb": {
+    "commit": "d6b48767cb84c05f9b03e52fbb23345b4fd42288",
+    "version": "26.12.1-SNAPSHOT",
+    "variant": "native",
+    "image": "arcadedb-bench:d6b48767cb84c05f9b03e52fbb23345b4fd42288-native",
+    "imageDigest": "sha256:95ea355581515726b4e4c597c9da7b8e7a0dc4e20f6055371a48c062cbdddc17",
+    "revision": "d6b48767cb84c05f9b03e52fbb23345b4fd42288",
+    "commitDate": "2026-11-22T16:48:09Z"
+  },
+  "machine": {
+    "id": "perf-01",
+    "cpu": "13th Gen Intel(R) Core(TM) i5-13500",
+    "cores": 8,
+    "memGb": 63,
+    "os": "Ubuntu 24.04.5 LTS",
+    "kernel": "6.8.0-149-generic",
+    "governor": "performance",
+    "noTurbo": "1"
+  },
+  "config": {
+    "heap": "8g",
+    "cpuset": "0-11",
+    "memLimitGb": 16,
+    "settings": {
+      "arcadedb.server.rootPassword": "***",
+      "arcadedb.backup.enabled": "false",
+      "arcadedb.server.plugins": "PrometheusMetricsPlugin",
+      "arcadedb.network.socketTimeout": "1800000"
+    },
+    "benchCommit": "f691a70afa67a065529195d08783a5fef6194900",
+    "reps": 3,
+    "warmup": 1,
+    "timeoutMin": 30,
+    "prepareTimeoutMin": 30,
+    "caseTimeoutMin": 120,
+    "seed": 42,
+    "serverCpus": "0-11",
+    "clientCpus": "12-19"
+  },
+  "results": [
+    {
+      "workload": "facet",
+      "case": "facet-query-after-load",
+      "scale": "L",
+      "params": {},
+      "reps": 3,
+      "warmup": 1,
+      "metrics": [
+        {
+          "name": "queries_per_s",
+          "unit": "queries/s",
+          "better": "higher",
+          "median": 0.2038019068741725,
+          "values": [
+            0.20053053066449034,
+            0.2038019068741725,
+            0.20838186104825418
+          ]
+        },
+        {
+          "name": "latency_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 1602.101157,
+          "values": [
+            1602.101157,
+            1684.708396,
+            1342.595276
+          ]
+        },
+        {
+          "name": "latency_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 9593.751489,
+          "values": [
+            9824.423663,
+            9593.751489,
+            9489.302702
+          ]
+        },
+        {
+          "name": "latency_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 9951.300596,
+          "values": [
+            10362.809801,
+            9951.300596,
+            9665.686979
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "facet",
+      "case": "facet-under-ingest",
+      "scale": "L",
+      "params": {},
+      "reps": 3,
+      "warmup": 1,
+      "metrics": [
+        {
+          "name": "queries_per_s",
+          "unit": "queries/s",
+          "better": "higher",
+          "median": 0.1459981949329854,
+          "values": [
+            0.1464713711232693,
+            0.1459981949329854,
+            0.14566115724333778
+          ]
+        },
+        {
+          "name": "latency_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 1976.886792,
+          "values": [
+            1923.641237,
+            1976.886792,
+            2097.167697
+          ]
+        },
+        {
+          "name": "latency_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 13554.056168,
+          "values": [
+            13457.135503,
+            13560.613683,
+            13554.056168
+          ]
+        },
+        {
+          "name": "latency_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 13848.074744,
+          "values": [
+            13842.339555,
+            14108.853397,
+            13848.074744
+          ]
+        },
+        {
+          "name": "ingest_records_per_s",
+          "unit": "records/s",
+          "better": "higher",
+          "median": 2000.0116123685782,
+          "values": [
+            2010.5099443598865,
+            2000.0116123685782,
+            1994.1400884963653
+          ]
+        },
+        {
+          "name": "facet_lag_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 492.0,
+          "values": [
+            135.0,
+            492.0,
+            516.0
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

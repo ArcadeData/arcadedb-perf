@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "runId": "2026-11-23T10-20-33.499Z-d6b48767cb-jvm",
+  "startedAt": "2026-11-23T10:20:33.499521934Z",
+  "finishedAt": "2026-11-23T11:32:35.606364747Z",
+  "trigger": "manual",
+  "source": "bench",
+  "arcadedb": {
+    "commit": "d6b48767cb84c05f9b03e52fbb23345b4fd42288",
+    "version": "26.12.1-SNAPSHOT",
+    "variant": "jvm",
+    "image": "arcadedb-bench:d6b48767cb84c05f9b03e52fbb23345b4fd42288-jvm",
+    "imageDigest": "sha256:d51a12fc5a30c184e832a7e62def5fbd8dce935660b7553e0be2c65f86e749a9",
+    "revision": "unknown",
+    "commitDate": "2026-11-22T16:48:09Z"
+  },
+  "machine": {
+    "id": "perf-01",
+    "cpu": "13th Gen Intel(R) Core(TM) i5-13500",
+    "cores": 8,
+    "memGb": 63,
+    "os": "Ubuntu 24.04.5 LTS",
+    "kernel": "6.8.0-149-generic",
+    "governor": "performance",
+    "noTurbo": "1"
+  },
+  "config": {
+    "heap": "8g",
+    "cpuset": "0-11",
+    "memLimitGb": 16,
+    "settings": {
+      "arcadedb.server.rootPassword": "***",
+      "arcadedb.backup.enabled": "false",
+      "arcadedb.server.plugins": "PrometheusMetricsPlugin",
+      "arcadedb.network.socketTimeout": "1800000"
+    },
+    "benchCommit": "f691a70afa67a065529195d08783a5fef6194900",
+    "reps": 3,
+    "warmup": 1,
+    "timeoutMin": 30,
+    "prepareTimeoutMin": 30,
+    "caseTimeoutMin": 120,
+    "seed": 42,
+    "serverCpus": "0-11",
+    "clientCpus": "12-19"
+  },
+  "results": [
+    {
+      "workload": "facet",
+      "case": "facet-query-after-load",
+      "scale": "L",
+      "params": {},
+      "reps": 3,
+      "warmup": 1,
+      "metrics": [
+        {
+          "name": "queries_per_s",
+          "unit": "queries/s",
+          "better": "higher",
+          "median": 0.4810656473366434,
+          "values": [
+            0.4807441425490893,
+            0.4810656473366434,
+            0.4816298152056838
+          ]
+        },
+        {
+          "name": "latency_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 682.302111,
+          "values": [
+            682.302111,
+            682.503804,
+            672.400177
+          ]
+        },
+        {
+          "name": "latency_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 3545.520807,
+          "values": [
+            3549.510855,
+            3545.520807,
+            3543.924861
+          ]
+        },
+        {
+          "name": "latency_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 3559.120992,
+          "values": [
+            3563.316992,
+            3559.120992,
+            3552.471224
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "facet",
+      "case": "facet-under-ingest",
+      "scale": "L",
+      "params": {},
+      "reps": 3,
+      "warmup": 1,
+      "metrics": [
+        {
+          "name": "queries_per_s",
+          "unit": "queries/s",
+          "better": "higher",
+          "median": 0.3630350016597249,
+          "values": [
+            0.3630350016597249,
+            0.36336781570674853,
+            0.36039429703414766
+          ]
+        },
+        {
+          "name": "latency_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 1301.215824,
+          "values": [
+            1281.568369,
+            1301.215824,
+            1373.020991
+          ]
+        },
+        {
+          "name": "latency_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 4997.093189,
+          "values": [
+            4945.535423,
+            5041.066816,
+            4997.093189
+          ]
+        },
+        {
+          "name": "latency_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 5197.212924,
+          "values": [
+            5097.455731,
+            5197.212924,
+            5219.322201
+          ]
+        },
+        {
+          "name": "ingest_records_per_s",
+          "unit": "records/s",
+          "better": "higher",
+          "median": 3862.5232094812122,
+          "values": [
+            3853.9379248342257,
+            3862.5232094812122,
+            3879.610323856053
+          ]
+        },
+        {
+          "name": "facet_lag_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 455.0,
+          "values": [
+            455.0,
+            59.0,
+            466.0
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

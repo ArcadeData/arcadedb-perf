@@ -30,7 +30,8 @@ were dated afterwards, from the GitHub API.
 
 A scale is the size of the data set every workload generates before it measures. The data is synthetic and deterministic
 (a fixed seed): two runs at the same scale load exactly the same records. Only runs at the same scale share a chart line,
-so each section of a workload page names its scale.
+so a workload page has one tab per scale (S, M, L, and the LDBC dataset for graph analytics); `workload.html?w=<workload>&s=<scale>`
+opens a given tab.
 
 | Scale | Used by | Typical length (both variants) |
 |---|---|---|
@@ -90,7 +91,7 @@ A laptop run is valid data but is a different machine: its numbers must not be c
 
 - `data/<yyyy>/<mm>/<run-id>.json`: the raw result files, unchanged. **This is the source of truth.** The charts are
   derived from it and can be rebuilt from it.
-- `site/`: the static dashboard (`index.html`, `workload.html?w=<workload>`, `app.js`, `style.css`). No build step.
+- `site/`: the static dashboard (`index.html`, `workload.html?w=<workload>[&s=<scale>]`, `app.js`, `style.css`). No build step.
 - `site/series/`, `site/index.json`, `site/latest.json`: written and committed by the nightly export (publish step of the
   private infra repo), deployed by Pages. Not edited by hand.
 - `site/fixtures/`: hand-built sample data in the exact export format, for developing the dashboard. Synthetic numbers.

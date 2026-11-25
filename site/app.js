@@ -392,37 +392,114 @@
     return i < 0 ? PRIMARY.length : i;
   }
 
-  function renderWorkload(w) {
-    var sections = document.getElementById('sections');
-    w.cases.forEach(function (c) {
-      sections.appendChild(el('h2', null, c.case + ' - scale ' + c.scale));
-      var grid = el('div', 'charts');
-      sections.appendChild(grid);
-      c.metrics.slice().sort(function (a, b) {
-        return metricRank(a.metric) - metricRank(b.metric) || (a.metric < b.metric ? -1 : 1);
-      }).forEach(function (m) {
-        var file = safeSeriesPath(m.file);
-        var box = el('div', 'chart-box');
-        var title = m.metric === '_status' ? 'status (runs without a measurement)' : m.metric;
-        box.appendChild(el('h3', null, title));
-        var meta = [];
-        if (m.unit) meta.push(m.unit);
-        if (m.better) meta.push(m.better + ' is better');
-        box.appendChild(el('p', 'meta', meta.join(' - ') || ' '));
-        var plot = el('div', 'chart');
-        box.appendChild(plot);
-        grid.appendChild(box);
-        if (!file) {
-          plot.textContent = 'invalid series path';
-          return;
-        }
-        getJson(file).then(function (series) {
-          mount(plot, function () { return fullOption(series); });
-        }).catch(function (err) {
-          plot.textContent = 'no chart: ' + err.message;
-        });
+  // Scales in the order a reader expects them; anything else (an LDBC dataset name) follows, alphabetically.
+  var SCALE_ORDER = ['XS', 'S', 'M', 'L'];
+
+  function scaleRank(scale) {
+    var i = SCALE_ORDER.indexOf(scale);
+    return i < 0 ? SCALE_ORDER.length : i;
+  }
+
+  function renderCase(sections, c) {
+    sections.appendChild(el('h2', null, c.case));
+    var grid = el('div', 'charts');
+    sections.appendChild(grid);
+    c.metrics.slice().sort(function (a, b) {
+      return metricRank(a.metric) - metricRank(b.metric) || (a.metric < b.metric ? -1 : 1);
+    }).forEach(function (m) {
+      var file = safeSeriesPath(m.file);
+      var box = el('div', 'chart-box');
+      var title = m.metric === '_status' ? 'status (runs without a measurement)' : m.metric;
+      box.appendChild(el('h3', null, title));
+      var meta = [];
+      if (m.unit) meta.push(m.unit);
+      if (m.better) meta.push(m.better + ' is better');
+      box.appendChild(el('p', 'meta', meta.join(' - ') || ' '));
+      var plot = el('div', 'chart');
+      box.appendChild(plot);
+      grid.appendChild(box);
+      if (!file) {
+        plot.textContent = 'invalid series path';
+        return;
+      }
+      getJson(file).then(function (series) {
+        mount(plot, function () { return fullOption(series); });
+      }).catch(function (err) {
+        plot.textContent = 'no chart: ' + err.message;
       });
     });
+  }
+
+  // One tab per scale. A panel's charts are built the first time it is shown: ECharts cannot size a chart in a hidden
+  // element. The selected scale is kept in the URL (?w=<workload>&s=<scale>) so a link opens the same tab.
+  function renderWorkload(w) {
+    var sections = document.getElementById('sections');
+    var byScale = {};
+    w.cases.forEach(function (c) {
+      (byScale[c.scale] = byScale[c.scale] || []).push(c);
+    });
+    var scales = Object.keys(byScale).sort(function (a, b) {
+      return scaleRank(a) - scaleRank(b) || (a < b ? -1 : a > b ? 1 : 0);
+    });
+    if (!scales.length) {
+      setStatus('No results for this workload yet.');
+      return;
+    }
+    var params = new URLSearchParams(window.location.search);
+    var wanted = params.get('s');
+    var bar = el('div', 'tabs');
+    bar.setAttribute('role', 'tablist');
+    bar.setAttribute('aria-label', 'Dataset scale');
+    sections.appendChild(bar);
+    var tabs = [], panels = [], built = [];
+
+    function select(i, focus) {
+      tabs.forEach(function (t, j) {
+        var on = i === j;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        panels[j].hidden = !on;
+      });
+      if (!built[i]) {
+        built[i] = true;
+        byScale[scales[i]].forEach(function (c) { renderCase(panels[i], c); });
+      }
+      if (focus) tabs[i].focus();
+      params.set('s', scales[i]);
+      window.history.replaceState(null, '', '?' + params.toString());
+      charts.forEach(function (c) { c.resize(); });
+    }
+
+    scales.forEach(function (scale, i) {
+      var n = byScale[scale].length;
+      var tab = el('button', 'tab', scale);
+      tab.type = 'button';
+      tab.id = 'tab-' + i;
+      tab.setAttribute('role', 'tab');
+      tab.setAttribute('aria-controls', 'panel-' + i);
+      tab.title = n + (n === 1 ? ' case' : ' cases');
+      tab.addEventListener('click', function () { select(i, false); });
+      tab.addEventListener('keydown', function (e) {
+        var next = e.key === 'ArrowRight' ? i + 1 : e.key === 'ArrowLeft' ? i - 1 : e.key === 'Home' ? 0 :
+          e.key === 'End' ? scales.length - 1 : -1;
+        if (next < 0 && e.key !== 'ArrowLeft') return;
+        e.preventDefault();
+        select((next + scales.length) % scales.length, true);
+      });
+      bar.appendChild(tab);
+      tabs.push(tab);
+      var panel = el('div', 'panel');
+      panel.id = 'panel-' + i;
+      panel.setAttribute('role', 'tabpanel');
+      panel.setAttribute('aria-labelledby', tab.id);
+      panel.hidden = true;
+      sections.appendChild(panel);
+      panels.push(panel);
+      built.push(false);
+    });
+    var first = scales.indexOf(wanted);
+    if (first < 0) first = scales.indexOf('S');
+    select(first < 0 ? 0 : first, false);
   }
 
   // ---- boot ----

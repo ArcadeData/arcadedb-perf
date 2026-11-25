@@ -88,3 +88,20 @@ a { color: var(--link); }
 .chart { width: 100%; height: 300px; }
 .tip { font-size: 12px; line-height: 1.5; max-width: 260px; white-space: normal; }
 .tip a { color: var(--link); }
+.tabs { display: flex; flex-wrap: wrap; gap: 4px; margin: 16px 0 0; border-bottom: 1px solid var(--border); }
+.tab {
+  font: inherit;
+  color: var(--muted);
+  background: none;
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  padding: 6px 16px;
+  margin-bottom: -1px;
+  cursor: pointer;
+  min-width: 48px;
+}
+.tab:hover { color: var(--fg); }
+.tab[aria-selected="true"] { color: var(--fg); background: var(--surface); border-color: var(--border); font-weight: 600; }
+.tab:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+.panel > h2:first-child { margin-top: 16px; }

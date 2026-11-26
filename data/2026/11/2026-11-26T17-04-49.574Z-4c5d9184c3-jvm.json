@@ -1,0 +1,753 @@
+{
+  "schemaVersion": 2,
+  "runId": "2026-11-26T17-04-49.574Z-4c5d9184c3-jvm",
+  "startedAt": "2026-11-26T17:04:49.574175880Z",
+  "finishedAt": "2026-11-26T17:12:21.932890818Z",
+  "trigger": "manual",
+  "source": "bench",
+  "arcadedb": {
+    "commit": "4c5d9184c3015e2901713dec6b2d7752d00b6fb3",
+    "version": "26.12.1-SNAPSHOT",
+    "variant": "jvm",
+    "image": "arcadedb-bench:4c5d9184c3015e2901713dec6b2d7752d00b6fb3-jvm",
+    "imageDigest": "sha256:c3d980ddd964ce357320d2b2b14f0cd18a24a23af038336f8a7abc37a69f9087",
+    "revision": "unknown",
+    "commitDate": "2026-11-26T17:00:44Z"
+  },
+  "machine": {
+    "id": "perf-01",
+    "cpu": "13th Gen Intel(R) Core(TM) i5-13500",
+    "cores": 8,
+    "memGb": 63,
+    "os": "Ubuntu 24.04.5 LTS",
+    "kernel": "6.8.0-149-generic",
+    "governor": "performance",
+    "noTurbo": "1"
+  },
+  "config": {
+    "heap": "8g",
+    "cpuset": "0-11",
+    "memLimitGb": 16,
+    "settings": {
+      "arcadedb.server.rootPassword": "***",
+      "arcadedb.backup.enabled": "false",
+      "arcadedb.server.plugins": "PrometheusMetricsPlugin",
+      "arcadedb.network.socketTimeout": "1800000"
+    },
+    "benchCommit": "4c5d9184c3015e2901713dec6b2d7752d00b6fb3",
+    "reps": 5,
+    "warmup": 2,
+    "timeoutMin": 30,
+    "prepareTimeoutMin": 30,
+    "caseTimeoutMin": 120,
+    "seed": 42,
+    "serverCpus": "0-11",
+    "clientCpus": "12-19"
+  },
+  "complete": true,
+  "diagnostics": {
+    "issues": {
+      "threads": 116,
+      "classHistogram": [
+        "   1:         59273      201103928  [B (java.base@25.0.4.1)",
+        "   2:         23609        2399936  [Ljava.lang.Object; (java.base@25.0.4.1)",
+        "   3:          8747        1710912  java.lang.Class (java.base@25.0.4.1)",
+        "   4:           605        1659168  [Ljava.util.concurrent.ConcurrentHashMap$Node; (java.base@25.0.4.1)",
+        "   5:          4372        1556800  [I (java.base@25.0.4.1)",
+        "   6:         51667        1240008  java.lang.String (java.base@25.0.4.1)",
+        "   7:         25127        1005080  java.util.concurrent.ConcurrentHashMap$Node (java.base@25.0.4.1)",
+        "   8:         22872         914880  org.antlr.v4.runtime.atn.ATNConfig",
+        "   9:           479         777672  [Lorg.antlr.v4.runtime.dfa.DFAState;",
+        "  10:         16845         673800  java.util.HashMap$Node (java.base@25.0.4.1)",
+        "  11:          1331         564736  [Ljava.util.HashMap$Node; (java.base@25.0.4.1)",
+        "  12:         18386         441264  java.util.ArrayList (java.base@25.0.4.1)",
+        "  13:          9070         435360  org.antlr.v4.runtime.atn.BasicState",
+        "  14:         13277         318648  org.antlr.v4.runtime.atn.EpsilonTransition",
+        "  15:          1696         244224  java.lang.reflect.Method (java.base@25.0.4.1)",
+        "  16:          3282         210048  java.lang.invoke.MemberName (java.base@25.0.4.1)",
+        "  17:          5447         174304  org.antlr.v4.runtime.atn.RuleTransition",
+        "  18:          1735         166560  java.util.concurrent.ConcurrentHashMap (java.base@25.0.4.1)",
+        "  19:            50         165768  [Ljava.nio.ByteBuffer; (java.base@25.0.4.1)",
+        "  20:          2945         164920  java.util.HashMap (java.base@25.0.4.1)",
+        "  21:          2815         157640  org.antlr.v4.runtime.atn.LexerATNConfig",
+        "  22:          2727         152712  java.nio.HeapByteBuffer (java.base@25.0.4.1)",
+        "  23:          1269         142128  java.lang.reflect.Field (java.base@25.0.4.1)",
+        "  24:          2470         138320  java.util.LinkedHashMap$Entry (java.base@25.0.4.1)",
+        "  25:          2461         137816  com.arcadedb.engine.CachedPage",
+        "  26:             4         131136  [Ljdk.internal.ref.PhantomCleanable; (java.base@25.0.4.1)",
+        "  27:          2717         130416  com.arcadedb.database.Binary",
+        "  28:          2288         128128  java.lang.invoke.MethodType (java.base@25.0.4.1)",
+        "  29:          2280         127680  jdk.internal.util.SoftReferenceKey (java.base@25.0.4.1)",
+        "  30:          1475         125688  [Ljava.lang.String; (java.base@25.0.4.1)"
+      ]
+    }
+  },
+  "results": [
+    {
+      "workload": "issues",
+      "case": "issue-12725",
+      "scale": "S",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "factor",
+          "unit": "factor",
+          "better": "lower",
+          "median": 1.0056485665805721,
+          "values": [
+            1.0056485665805721,
+            1.0107512407200614,
+            1.0041332474890015,
+            1.0072044406947724,
+            0.9964869890528948
+          ]
+        },
+        {
+          "name": "slow_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 18.368020392857144,
+          "values": [
+            18.716436962962963,
+            18.686047000000002,
+            18.368020392857144,
+            18.285994428571428,
+            18.204025392857144
+          ]
+        },
+        {
+          "name": "reference_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 18.292413321428572,
+          "values": [
+            18.61130974074074,
+            18.48728574074074,
+            18.292413321428572,
+            18.155196392857142,
+            18.268201785714286
+          ]
+        },
+        {
+          "name": "rep_s",
+          "unit": "s",
+          "better": "lower",
+          "median": 5.091183956,
+          "values": [
+            5.039360167,
+            5.091183956,
+            5.102276481,
+            5.119327378,
+            5.089351985
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "issues",
+      "case": "issue-12713",
+      "scale": "S",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "factor",
+          "unit": "factor",
+          "better": "lower",
+          "median": 1.023811376215422,
+          "values": [
+            1.0216899740589613,
+            1.025678495482521,
+            1.023811376215422,
+            1.0241830012876634,
+            1.0232954743350233
+          ]
+        },
+        {
+          "name": "slow_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 29.741126666666666,
+          "values": [
+            29.82778305882353,
+            29.741126666666666,
+            29.764992166666666,
+            29.73960755555556,
+            29.737474777777777
+          ]
+        },
+        {
+          "name": "reference_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 29.060496722222222,
+          "values": [
+            29.19455394117647,
+            28.99653916666667,
+            29.072730444444446,
+            29.037396166666667,
+            29.060496722222222
+          ]
+        },
+        {
+          "name": "rep_s",
+          "unit": "s",
+          "better": "lower",
+          "median": 5.178664834999999,
+          "values": [
+            5.024420336,
+            5.178664834999999,
+            5.183714471,
+            5.230179275,
+            5.17489695
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "issues",
+      "case": "issue-12281",
+      "scale": "S",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "factor",
+          "unit": "factor",
+          "better": "lower",
+          "median": 1.039122443310297,
+          "values": [
+            1.0396643319561554,
+            1.0319520351312708,
+            1.0459551221645196,
+            1.0215708596698412,
+            1.039122443310297
+          ]
+        },
+        {
+          "name": "slow_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.8101037314814815,
+          "values": [
+            0.8010032283950617,
+            0.8169399571428572,
+            0.8101037314814815,
+            0.8374424722222223,
+            0.8097376203703703
+          ]
+        },
+        {
+          "name": "reference_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.7792514015873016,
+          "values": [
+            0.7704440787037037,
+            0.7916452793650794,
+            0.7745109845679012,
+            0.8197595539215686,
+            0.7792514015873016
+          ]
+        },
+        {
+          "name": "rep_s",
+          "unit": "s",
+          "better": "lower",
+          "median": 5.083722925,
+          "values": [
+            5.057647742,
+            5.083722925,
+            5.118138291999999,
+            5.078610934,
+            5.099496
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "issues",
+      "case": "issue-11963",
+      "scale": "S",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "factor",
+          "unit": "factor",
+          "better": "lower",
+          "median": 1.0012093462227754,
+          "values": [
+            1.0044837622537583,
+            1.017816262112928,
+            0.9947875731464411,
+            0.9970701267484491,
+            1.0012093462227754
+          ]
+        },
+        {
+          "name": "slow_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.2539158114446529,
+          "values": [
+            0.25746902540650407,
+            0.2542931918386492,
+            0.24988750656660413,
+            0.24383205112570355,
+            0.2539158114446529
+          ]
+        },
+        {
+          "name": "reference_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.251196851782364,
+          "values": [
+            0.25631974859287054,
+            0.2498419423076923,
+            0.251196851782364,
+            0.24454854737335838,
+            0.2536091102251407
+          ]
+        },
+        {
+          "name": "rep_s",
+          "unit": "s",
+          "better": "lower",
+          "median": 5.280191744,
+          "values": [
+            5.18612682,
+            5.280191744,
+            5.304710473,
+            5.235627738,
+            5.32518084
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "issues",
+      "case": "issue-12522",
+      "scale": "S",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "factor",
+          "unit": "factor",
+          "better": "lower",
+          "median": 1.0332692233445582,
+          "values": [
+            1.056879868333408,
+            1.0130509929040492,
+            1.0737907548529961,
+            1.0093069132538532,
+            1.0332692233445582
+          ]
+        },
+        {
+          "name": "slow_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.26155872532402796,
+          "values": [
+            0.2581515209371884,
+            0.26155872532402796,
+            0.2624543190428714,
+            0.2580163040877368,
+            0.28444065148305087
+          ]
+        },
+        {
+          "name": "reference_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.25563711166500497,
+          "values": [
+            0.24425814955134598,
+            0.25818910119641075,
+            0.24441849387947273,
+            0.25563711166500497,
+            0.27528222563559324
+          ]
+        },
+        {
+          "name": "rep_s",
+          "unit": "s",
+          "better": "lower",
+          "median": 5.185759576000001,
+          "values": [
+            5.138441157,
+            5.217353194999999,
+            5.1363662329999995,
+            5.195622443,
+            5.185759576000001
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "issues",
+      "case": "issue-12141",
+      "scale": "S",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "factor",
+          "unit": "factor",
+          "better": "lower",
+          "median": 1.0568114789083318,
+          "values": [
+            1.065631186252829,
+            1.0522981957528872,
+            1.0568114789083318,
+            1.0495772609667147,
+            1.0638220523237716
+          ]
+        },
+        {
+          "name": "slow_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.2836260795940171,
+          "values": [
+            0.2838621340811966,
+            0.2833280496794872,
+            0.2836260795940171,
+            0.2843123792735042,
+            0.28173259081196583
+          ]
+        },
+        {
+          "name": "reference_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.26837906784188037,
+          "values": [
+            0.2663793418803419,
+            0.26924692147435897,
+            0.26837906784188037,
+            0.2708827542735043,
+            0.2648305608974359
+          ]
+        },
+        {
+          "name": "rep_s",
+          "unit": "s",
+          "better": "lower",
+          "median": 5.170510261,
+          "values": [
+            5.170510261,
+            5.205963052,
+            5.097199369,
+            5.19793987,
+            5.162313578
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "issues",
+      "case": "issue-11701",
+      "scale": "S",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "factor",
+          "unit": "factor",
+          "better": "lower",
+          "median": 0.9535931905127387,
+          "values": [
+            0.9535931905127387,
+            0.9591266416417588,
+            0.9511828055823495,
+            0.9609022270637033,
+            0.9438348836286867
+          ]
+        },
+        {
+          "name": "slow_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.27828524731182797,
+          "values": [
+            0.27787486304470854,
+            0.2785553655913979,
+            0.2711060629032258,
+            0.28760394227504243,
+            0.27828524731182797
+          ]
+        },
+        {
+          "name": "reference_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.291397700622524,
+          "values": [
+            0.291397700622524,
+            0.29042605376344083,
+            0.28501993655913976,
+            0.2993061460101868,
+            0.2948452659875495
+          ]
+        },
+        {
+          "name": "rep_s",
+          "unit": "s",
+          "better": "lower",
+          "median": 5.147372225,
+          "values": [
+            5.094060224,
+            5.147372225,
+            5.153646551,
+            5.179163314999999,
+            5.057643576
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "issues",
+      "case": "issue-11871",
+      "scale": "S",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "factor",
+          "unit": "factor",
+          "better": "lower",
+          "median": 1.0052369075322845,
+          "values": [
+            1.0052369075322845,
+            1.0003963281054145,
+            1.0115076267655831,
+            1.0117536234016358,
+            0.9879271269204101
+          ]
+        },
+        {
+          "name": "slow_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.5409514604462475,
+          "values": [
+            0.5405662629310345,
+            0.5409514604462475,
+            0.632367027093596,
+            0.5421474726166329,
+            0.5332493405172414
+          ]
+        },
+        {
+          "name": "reference_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 0.5397658653017241,
+          "values": [
+            0.5377501153017241,
+            0.5407371511156187,
+            0.6251727721674877,
+            0.5358493017241379,
+            0.5397658653017241
+          ]
+        },
+        {
+          "name": "rep_s",
+          "unit": "s",
+          "better": "lower",
+          "median": 5.126551579,
+          "values": [
+            5.126551579,
+            5.197478419,
+            5.124187656,
+            5.233903462,
+            5.072221161000001
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "issues",
+      "case": "issue-11682",
+      "scale": "S",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "exponent",
+          "unit": "exponent",
+          "better": "lower",
+          "median": 0.9144358965780501,
+          "values": [
+            0.9207177543008592,
+            0.9154240609517346,
+            0.914184313858578,
+            0.9144358965780501,
+            0.9110466637375972
+          ]
+        },
+        {
+          "name": "size_1_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 9.649064424242425,
+          "values": [
+            9.623445363636364,
+            9.654016818181818,
+            9.599527454545454,
+            9.649064424242425,
+            9.750321600000001
+          ]
+        },
+        {
+          "name": "size_2_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 17.926088545454544,
+          "values": [
+            17.926088545454544,
+            17.805863136363637,
+            17.795224636363635,
+            17.939651772727274,
+            18.02061168181818
+          ]
+        },
+        {
+          "name": "size_3_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 34.34379263636364,
+          "values": [
+            34.48719781818182,
+            34.34379263636364,
+            34.09130727272728,
+            34.27918390909091,
+            34.476541
+          ]
+        },
+        {
+          "name": "rep_s",
+          "unit": "s",
+          "better": "lower",
+          "median": 5.372855733000001,
+          "values": [
+            5.372855733000001,
+            5.414496710000001,
+            5.423790574,
+            5.343122279,
+            5.372647786000001
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    },
+    {
+      "workload": "issues",
+      "case": "issue-11700",
+      "scale": "S",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "exponent",
+          "unit": "exponent",
+          "better": "lower",
+          "median": 0.328233882137317,
+          "values": [
+            0.3321187685730546,
+            0.328233882137317,
+            0.3271523058732428,
+            0.3158546763489879,
+            0.3423168275569076
+          ]
+        },
+        {
+          "name": "size_1_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 2.497873816666667,
+          "values": [
+            2.4954585166666665,
+            2.5404510333333334,
+            2.497873816666667,
+            2.611480881818182,
+            2.493897525
+          ]
+        },
+        {
+          "name": "size_2_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 2.9656052803030306,
+          "values": [
+            2.9663436893939394,
+            2.9656052803030306,
+            2.9142913560606063,
+            3.0785207603305786,
+            2.965367931818182
+          ]
+        },
+        {
+          "name": "size_3_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 4.004306541666667,
+          "values": [
+            3.95462928125,
+            4.004306541666667,
+            3.93129659375,
+            4.046227659090909,
+            4.008426
+          ]
+        },
+        {
+          "name": "rep_s",
+          "unit": "s",
+          "better": "lower",
+          "median": 5.236350965,
+          "values": [
+            5.249498480000001,
+            5.2645863760000005,
+            5.2348885140000005,
+            5.173669256,
+            5.236350965
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

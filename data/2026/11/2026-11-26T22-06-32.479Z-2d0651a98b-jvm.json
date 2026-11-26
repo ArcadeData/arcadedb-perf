@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 2,
+  "runId": "2026-11-26T22-06-32.479Z-2d0651a98b-jvm",
+  "startedAt": "2026-11-26T22:06:32.479818083Z",
+  "finishedAt": "2026-11-26T22:49:15.922349320Z",
+  "trigger": "manual",
+  "source": "bench",
+  "arcadedb": {
+    "commit": "2d0651a98b5593b7bca577dc17a099da16da3e45",
+    "version": "26.12.1-SNAPSHOT",
+    "variant": "jvm",
+    "image": "arcadedb-bench:2d0651a98b5593b7bca577dc17a099da16da3e45-jvm",
+    "imageDigest": "sha256:21c6548424108a4371fe3b8b9071f311f7583045358c0971b93b6aaa1459c306",
+    "revision": "unknown",
+    "commitDate": "2026-11-26T22:02:22Z"
+  },
+  "machine": {
+    "id": "perf-01",
+    "cpu": "13th Gen Intel(R) Core(TM) i5-13500",
+    "cores": 8,
+    "memGb": 63,
+    "os": "Ubuntu 24.04.5 LTS",
+    "kernel": "6.8.0-149-generic",
+    "governor": "performance",
+    "noTurbo": "1"
+  },
+  "config": {
+    "heap": "8g",
+    "cpuset": "0-11",
+    "memLimitGb": 16,
+    "settings": {
+      "arcadedb.server.rootPassword": "***",
+      "arcadedb.backup.enabled": "false",
+      "arcadedb.server.plugins": "PrometheusMetricsPlugin",
+      "arcadedb.network.socketTimeout": "1800000"
+    },
+    "benchCommit": "2d0651a98b5593b7bca577dc17a099da16da3e45",
+    "reps": 5,
+    "warmup": 2,
+    "timeoutMin": 30,
+    "prepareTimeoutMin": 30,
+    "caseTimeoutMin": 120,
+    "seed": 42,
+    "serverCpus": "0-11",
+    "clientCpus": "12-19"
+  },
+  "complete": true,
+  "diagnostics": {
+    "ramp": {
+      "threads": 201,
+      "classHistogram": [
+        "   1:         81137      268558200  [B (java.base@25.0.4.1)",
+        "   2:         23961        2778232  [Ljava.lang.Object; (java.base@25.0.4.1)",
+        "   3:          8835        1728856  java.lang.Class (java.base@25.0.4.1)",
+        "   4:          4600        1691232  [I (java.base@25.0.4.1)",
+        "   5:         70053        1681272  java.lang.String (java.base@25.0.4.1)",
+        "   6:           478        1508528  [Ljava.util.concurrent.ConcurrentHashMap$Node; (java.base@25.0.4.1)",
+        "   7:         27759        1110360  java.util.concurrent.ConcurrentHashMap$Node (java.base@25.0.4.1)",
+        "   8:         19037         761480  io.undertow.protocols.http2.HpackEncoder$DynamicTableEntry",
+        "   9:         17994         719760  org.antlr.v4.runtime.atn.ATNConfig",
+        "  10:           363         619520  [Lorg.antlr.v4.runtime.dfa.DFAState;",
+        "  11:         11147         445880  java.util.HashMap$Node (java.base@25.0.4.1)",
+        "  12:          9070         435360  org.antlr.v4.runtime.atn.BasicState",
+        "  13:         17608         422592  java.util.ArrayList (java.base@25.0.4.1)",
+        "  14:          7177         401912  java.nio.HeapByteBuffer (java.base@25.0.4.1)",
+        "  15:          1432         395600  [Ljava.util.HashMap$Node; (java.base@25.0.4.1)",
+        "  16:          7090         340320  com.arcadedb.database.Binary",
+        "  17:         13277         318648  org.antlr.v4.runtime.atn.EpsilonTransition",
+        "  18:          5590         313040  com.arcadedb.engine.CachedPage",
+        "  19:          1714         246816  java.lang.reflect.Method (java.base@25.0.4.1)",
+        "  20:          3356         214784  java.lang.invoke.MemberName (java.base@25.0.4.1)",
+        "  21:          5590         178880  com.arcadedb.engine.PageId",
+        "  22:          5447         174304  org.antlr.v4.runtime.atn.RuleTransition",
+        "  23:          2098         170040  [Ljava.lang.String; (java.base@25.0.4.1)",
+        "  24:          1435         160720  java.lang.reflect.Field (java.base@25.0.4.1)",
+        "  25:          2678         149968  java.util.HashMap (java.base@25.0.4.1)",
+        "  26:          2377         133112  java.lang.invoke.MethodType (java.base@25.0.4.1)",
+        "  27:             4         131136  [Ljdk.internal.ref.PhantomCleanable; (java.base@25.0.4.1)",
+        "  28:          2280         127680  jdk.internal.util.SoftReferenceKey (java.base@25.0.4.1)",
+        "  29:            45         124872  [Ljava.nio.ByteBuffer; (java.base@25.0.4.1)",
+        "  30:          2378         114144  jdk.internal.util.WeakReferenceKey (java.base@25.0.4.1)"
+      ]
+    }
+  },
+  "results": [
+    {
+      "workload": "ramp",
+      "case": "knee-point-lookup-cypher",
+      "scale": "M",
+      "params": {},
+      "reps": 3,
+      "warmup": 1,
+      "metrics": [
+        {
+          "name": "knee_per_s",
+          "unit": "ops/s",
+          "better": "higher",
+          "median": 16093.625997831705,
+          "values": [
+            16940.658945086005,
+            16093.625997831705,
+            15670.109524204556
+          ]
+        },
+        {
+          "name": "knee_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 2.786606,
+          "values": [
+            2.937546,
+            2.786606,
+            2.480274
+          ]
+        },
+        {
+          "name": "steps",
+          "unit": "steps",
+          "better": "lower",
+          "median": 27.0,
+          "values": [
+            28.0,
+            27.0,
+            27.0
+          ]
+        },
+        {
+          "name": "client_limited",
+          "unit": "flag",
+          "better": "lower",
+          "median": 0.0,
+          "values": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "ceiling_reached",
+          "unit": "flag",
+          "better": "lower",
+          "median": 0.0,
+          "values": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "break_drop",
+          "unit": "flag",
+          "better": "lower",
+          "median": 1.0,
+          "values": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "name": "break_p99",
+          "unit": "flag",
+          "better": "lower",
+          "median": 0.0,
+          "values": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "break_errors",
+          "unit": "flag",
+          "better": "lower",
+          "median": 0.0,
+          "values": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "break_unfinished",
+          "unit": "flag",
+          "better": "lower",
+          "median": 0.0,
+          "values": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null,
+      "notes": {
+        "stallDumps": 1
+      }
+    }
+  ]
+}

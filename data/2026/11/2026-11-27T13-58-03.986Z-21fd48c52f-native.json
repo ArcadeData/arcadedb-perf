@@ -1,0 +1,362 @@
+{
+  "schemaVersion": 2,
+  "runId": "2026-11-27T13-58-03.986Z-21fd48c52f-native",
+  "startedAt": "2026-11-27T13:58:03.986765536Z",
+  "finishedAt": "2026-11-27T14:04:13.629113768Z",
+  "trigger": "manual",
+  "source": "bench",
+  "arcadedb": {
+    "commit": "21fd48c52f94c818df2e16be9afab1542a98c07f",
+    "version": "26.12.1-SNAPSHOT",
+    "variant": "native",
+    "image": "arcadedb-bench:21fd48c52f94c818df2e16be9afab1542a98c07f-native",
+    "imageDigest": "sha256:580812e7f9a206a45a886deb14ce23dd3015c59d133715afbbd7d3ddc5a6204c",
+    "revision": "21fd48c52f94c818df2e16be9afab1542a98c07f",
+    "commitDate": "2026-11-27T00:28:52Z"
+  },
+  "machine": {
+    "id": "perf-01",
+    "cpu": "13th Gen Intel(R) Core(TM) i5-13500",
+    "cores": 8,
+    "memGb": 63,
+    "os": "Ubuntu 24.04.5 LTS",
+    "kernel": "6.8.0-149-generic",
+    "governor": "performance",
+    "noTurbo": "1"
+  },
+  "config": {
+    "image": "arcadedb-bench:21fd48c52f94c818df2e16be9afab1542a98c07f-native",
+    "nodes": 3,
+    "members": [
+      {
+        "name": "ha-0",
+        "cpuset": "0-3"
+      },
+      {
+        "name": "ha-1",
+        "cpuset": "4-7"
+      },
+      {
+        "name": "ha-2",
+        "cpuset": "8-11"
+      }
+    ],
+    "nodeMemGb": 5,
+    "heap": "3g",
+    "cpusets": "split",
+    "benchCommit": "ebfe5c8d8b4c828d9e3c4e874af2f353a417a692",
+    "reps": 5,
+    "warmup": 2,
+    "timeoutMin": 30,
+    "prepareTimeoutMin": 30,
+    "caseTimeoutMin": 120,
+    "seed": 42,
+    "serverCpus": "0-11",
+    "clientCpus": "12-19"
+  },
+  "complete": true,
+  "diagnostics": {
+    "ha": {
+      "serverConfig": {
+        "image": "arcadedb-bench:21fd48c52f94c818df2e16be9afab1542a98c07f-native",
+        "nodes": 3,
+        "members": [
+          {
+            "name": "ha-0",
+            "cpuset": "0-3"
+          },
+          {
+            "name": "ha-1",
+            "cpuset": "4-7"
+          },
+          {
+            "name": "ha-2",
+            "cpuset": "8-11"
+          }
+        ],
+        "nodeMemGb": 5,
+        "heap": "3g",
+        "cpusets": "split"
+      },
+      "imageInfo": {
+        "image": "arcadedb-bench:21fd48c52f94c818df2e16be9afab1542a98c07f-native",
+        "imageDigest": "sha256:580812e7f9a206a45a886deb14ce23dd3015c59d133715afbbd7d3ddc5a6204c",
+        "revision": "21fd48c52f94c818df2e16be9afab1542a98c07f",
+        "variant": "native"
+      }
+    }
+  },
+  "results": [
+    {
+      "workload": "ha",
+      "case": "write-throughput-1w",
+      "scale": "S",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "records_per_s",
+          "unit": "records/s",
+          "better": "higher",
+          "median": 398.8666666666667,
+          "values": [
+            387.73333333333335,
+            398.8666666666667,
+            437.73333333333335,
+            385.4,
+            416.6
+          ]
+        },
+        {
+          "name": "latency_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 2.161087,
+          "values": [
+            2.166851,
+            2.161087,
+            2.139967,
+            2.233903,
+            2.159672
+          ]
+        },
+        {
+          "name": "latency_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 3.971841,
+          "values": [
+            4.009965,
+            3.971841,
+            2.560264,
+            3.999655,
+            3.655316
+          ]
+        },
+        {
+          "name": "latency_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 4.566054,
+          "values": [
+            5.479308,
+            4.566054,
+            4.446587,
+            4.584987,
+            4.366331
+          ]
+        },
+        {
+          "name": "unknown_writes",
+          "unit": "writes",
+          "better": "lower",
+          "median": 0.0,
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "leader_changes",
+          "unit": "changes",
+          "better": "lower",
+          "median": 0.0,
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null,
+      "histograms": [
+        "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"
+      ]
+    },
+    {
+      "workload": "ha",
+      "case": "write-throughput-8w",
+      "scale": "S",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "records_per_s",
+          "unit": "records/s",
+          "better": "higher",
+          "median": 396.6666666666667,
+          "values": [
+            445.73333333333335,
+            267.73333333333335,
+            416.4,
+            347.8666666666667,
+            396.6666666666667
+          ]
+        },
+        {
+          "name": "latency_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 17.181518,
+          "values": [
+            17.134192,
+            17.181518,
+            17.144998,
+            20.618248,
+            19.123734
+          ]
+        },
+        {
+          "name": "latency_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 25.526135,
+          "values": [
+            17.435475,
+            62.12684,
+            23.922194,
+            34.086754,
+            25.526135
+          ]
+        },
+        {
+          "name": "latency_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 44.645397,
+          "values": [
+            24.606647,
+            68.112996,
+            62.556748,
+            43.711613,
+            44.645397
+          ]
+        },
+        {
+          "name": "unknown_writes",
+          "unit": "writes",
+          "better": "lower",
+          "median": 0.0,
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "leader_changes",
+          "unit": "changes",
+          "better": "lower",
+          "median": 0.0,
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null,
+      "histograms": [
+        "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"
+      ]
+    },
+    {
+      "workload": "ha",
+      "case": "replication-lag",
+      "scale": "S",
+      "params": {},
+      "reps": 5,
+      "warmup": 2,
+      "metrics": [
+        {
+          "name": "lag_p50_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 1.298915,
+          "values": [
+            1.317345,
+            1.298915,
+            1.301823,
+            1.297934,
+            1.29741
+          ]
+        },
+        {
+          "name": "lag_p95_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 1.999163,
+          "values": [
+            1.977862,
+            1.987112,
+            2.006466,
+            1.999163,
+            1.999836
+          ]
+        },
+        {
+          "name": "lag_max_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 64.381729,
+          "values": [
+            53.467809,
+            68.555608,
+            68.212883,
+            64.166031,
+            64.381729
+          ]
+        },
+        {
+          "name": "unknown_writes",
+          "unit": "writes",
+          "better": "lower",
+          "median": 0.0,
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "leader_changes",
+          "unit": "changes",
+          "better": "lower",
+          "median": 0.0,
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

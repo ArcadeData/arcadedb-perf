@@ -1,0 +1,192 @@
+{
+  "schemaVersion": 2,
+  "runId": "2026-11-28T10-43-52.204Z-21fd48c52f-jvm",
+  "startedAt": "2026-11-28T10:43:52.204335526Z",
+  "finishedAt": "2026-11-28T12:46:42.575682545Z",
+  "trigger": "manual",
+  "source": "bench",
+  "arcadedb": {
+    "commit": "21fd48c52f94c818df2e16be9afab1542a98c07f",
+    "version": "26.12.1-SNAPSHOT",
+    "variant": "jvm",
+    "image": "arcadedb-bench:21fd48c52f94c818df2e16be9afab1542a98c07f-jvm",
+    "imageDigest": "sha256:23b91b3a12107bc5079b77a9d17d1de7daa3df61f0d7ddfd8c3f1a07d247f8d5",
+    "revision": "unknown",
+    "commitDate": "2026-11-27T00:28:52Z"
+  },
+  "machine": {
+    "id": "perf-01",
+    "cpu": "13th Gen Intel(R) Core(TM) i5-13500",
+    "cores": 8,
+    "memGb": 63,
+    "os": "Ubuntu 24.04.5 LTS",
+    "kernel": "6.8.0-149-generic",
+    "governor": "performance",
+    "noTurbo": "1"
+  },
+  "config": {
+    "heap": "8g",
+    "cpuset": "0-11",
+    "memLimitGb": 16,
+    "settings": {
+      "arcadedb.server.rootPassword": "***",
+      "arcadedb.backup.enabled": "false",
+      "arcadedb.server.plugins": "PrometheusMetricsPlugin",
+      "arcadedb.network.socketTimeout": "1800000"
+    },
+    "benchCommit": "7ce5a1bffe627ccceb082fa6d5ab190858261758",
+    "reps": 5,
+    "warmup": 2,
+    "timeoutMin": 30,
+    "prepareTimeoutMin": 30,
+    "caseTimeoutMin": 120,
+    "seed": 42,
+    "serverCpus": "0-11",
+    "clientCpus": "12-19"
+  },
+  "complete": true,
+  "diagnostics": {
+    "soak": {
+      "threads": 109,
+      "classHistogram": [
+        "   1:       3296408     1968346976  [F (java.base@25.0.4.1)",
+        "   2:         77670     1237986520  [B (java.base@25.0.4.1)",
+        "   3:       1757481      402654408  [I (java.base@25.0.4.1)",
+        "   4:        177157       85294992  [J (java.base@25.0.4.1)",
+        "   5:       1708123       68324920  io.github.jbellis.jvector.graph.ConcurrentNeighborMap$Neighbors",
+        "   6:         15293       64042448  [Ljava.lang.Object; (java.base@25.0.4.1)",
+        "   7:       1442898       57715920  java.util.HashMap$Node (java.base@25.0.4.1)",
+        "   8:       1431662       45813184  com.arcadedb.index.vector.LSMVectorIndex$DeltaVectorEntry",
+        "   9:       1428924       34294176  com.arcadedb.database.RID",
+        "  10:       1588274       25412384  io.github.jbellis.jvector.vector.ArrayVectorFloat",
+        "  11:       1491851       23869616  java.lang.Integer (java.base@25.0.4.1)",
+        "  12:        802728       19265472  com.arcadedb.index.vector.VectorCache$Entry",
+        "  13:          1268       17148176  [Ljava.util.HashMap$Node; (java.base@25.0.4.1)",
+        "  14:             1       13236416  [Lio.github.jbellis.jvector.vector.types.VectorFloat;",
+        "  15:         14698        5237560  [Ljava.lang.String; (java.base@25.0.4.1)",
+        "  16:         97777        3911080  java.util.concurrent.ConcurrentHashMap$Node (java.base@25.0.4.1)",
+        "  17:           374        2676784  [Ljava.util.concurrent.ConcurrentHashMap$Node; (java.base@25.0.4.1)",
+        "  18:         13388        2249184  com.arcadedb.engine.timeseries.TimeSeriesSealedStore$BlockEntry",
+        "  19:          9146        1790392  java.lang.Class (java.base@25.0.4.1)",
+        "  20:         30124        1686944  java.nio.HeapByteBuffer (java.base@25.0.4.1)",
+        "  21:         40198        1613936  [D (java.base@25.0.4.1)",
+        "  22:         32150        1543200  com.arcadedb.index.vector.VectorLocationIndex$Chunk",
+        "  23:         30107        1445136  com.arcadedb.database.Binary",
+        "  24:         56837        1364088  java.lang.String (java.base@25.0.4.1)",
+        "  25:         23628         945120  org.antlr.v4.runtime.atn.ATNConfig",
+        "  26:         15870         888720  com.arcadedb.engine.CachedPage",
+        "  27:           418         727280  [Lorg.antlr.v4.runtime.dfa.DFAState;",
+        "  28:         17551         561632  com.arcadedb.engine.PageId",
+        "  29:         13389         535568  [[Ljava.lang.String; (java.base@25.0.4.1)",
+        "  30:         14224         455168  com.arcadedb.engine.SharedImmutablePage"
+      ]
+    }
+  },
+  "results": [
+    {
+      "workload": "soak",
+      "case": "mixed-2h",
+      "scale": "M",
+      "params": {},
+      "reps": 1,
+      "warmup": 0,
+      "metrics": [
+        {
+          "name": "ingest_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 7350.984064,
+          "values": [
+            7350.984064
+          ]
+        },
+        {
+          "name": "search_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 2365.951891,
+          "values": [
+            2365.951891
+          ]
+        },
+        {
+          "name": "compaction_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 250543.820898,
+          "values": [
+            250543.820898
+          ]
+        },
+        {
+          "name": "ddl_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 1518.868099,
+          "values": [
+            1518.868099
+          ]
+        },
+        {
+          "name": "timeseries_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 14.848389,
+          "values": [
+            14.848389
+          ]
+        },
+        {
+          "name": "vector_churn_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 7067.437645,
+          "values": [
+            7067.437645
+          ]
+        },
+        {
+          "name": "max_commit_gap_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 2040.346006,
+          "values": [
+            2040.346006
+          ]
+        },
+        {
+          "name": "heap_floor_slope_per_hour",
+          "unit": "per_hour",
+          "better": "lower",
+          "median": 0.08296406894753258,
+          "values": [
+            0.08296406894753258
+          ]
+        },
+        {
+          "name": "thread_slope_per_hour",
+          "unit": "per_hour",
+          "better": "lower",
+          "median": -0.7579307484967865,
+          "values": [
+            -0.7579307484967865
+          ]
+        },
+        {
+          "name": "open_files_slope_per_hour",
+          "unit": "per_hour",
+          "better": "lower",
+          "median": 0.41488699979266025,
+          "values": [
+            0.41488699979266025
+          ]
+        }
+      ],
+      "status": "failed",
+      "error": "heap_floor_slope_per_hour is 0.08296406894753258, over its limit of 0.05",
+      "notes": {
+        "stallDumps": 1
+      }
+    }
+  ]
+}

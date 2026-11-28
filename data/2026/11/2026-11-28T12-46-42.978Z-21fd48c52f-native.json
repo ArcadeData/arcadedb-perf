@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 2,
+  "runId": "2026-11-28T12-46-42.978Z-21fd48c52f-native",
+  "startedAt": "2026-11-28T12:46:42.978358810Z",
+  "finishedAt": "2026-11-28T14:53:46.461397592Z",
+  "trigger": "manual",
+  "source": "bench",
+  "arcadedb": {
+    "commit": "21fd48c52f94c818df2e16be9afab1542a98c07f",
+    "version": "26.12.1-SNAPSHOT",
+    "variant": "native",
+    "image": "arcadedb-bench:21fd48c52f94c818df2e16be9afab1542a98c07f-native",
+    "imageDigest": "sha256:580812e7f9a206a45a886deb14ce23dd3015c59d133715afbbd7d3ddc5a6204c",
+    "revision": "21fd48c52f94c818df2e16be9afab1542a98c07f",
+    "commitDate": "2026-11-27T00:28:52Z"
+  },
+  "machine": {
+    "id": "perf-01",
+    "cpu": "13th Gen Intel(R) Core(TM) i5-13500",
+    "cores": 8,
+    "memGb": 63,
+    "os": "Ubuntu 24.04.5 LTS",
+    "kernel": "6.8.0-149-generic",
+    "governor": "performance",
+    "noTurbo": "1"
+  },
+  "config": {
+    "heap": "8g",
+    "cpuset": "0-11",
+    "memLimitGb": 16,
+    "settings": {
+      "arcadedb.server.rootPassword": "***",
+      "arcadedb.backup.enabled": "false",
+      "arcadedb.server.plugins": "PrometheusMetricsPlugin",
+      "arcadedb.network.socketTimeout": "1800000"
+    },
+    "benchCommit": "7ce5a1bffe627ccceb082fa6d5ab190858261758",
+    "reps": 5,
+    "warmup": 2,
+    "timeoutMin": 30,
+    "prepareTimeoutMin": 30,
+    "caseTimeoutMin": 120,
+    "seed": 42,
+    "serverCpus": "0-11",
+    "clientCpus": "12-19"
+  },
+  "complete": true,
+  "diagnostics": {
+    "soak": {
+      "threads": 78
+    }
+  },
+  "results": [
+    {
+      "workload": "soak",
+      "case": "mixed-2h",
+      "scale": "M",
+      "params": {},
+      "reps": 1,
+      "warmup": 0,
+      "metrics": [
+        {
+          "name": "ingest_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 3698.086796,
+          "values": [
+            3698.086796
+          ]
+        },
+        {
+          "name": "search_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 1879.190733,
+          "values": [
+            1879.190733
+          ]
+        },
+        {
+          "name": "compaction_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 331567.480378,
+          "values": [
+            331567.480378
+          ]
+        },
+        {
+          "name": "ddl_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 1144.363907,
+          "values": [
+            1144.363907
+          ]
+        },
+        {
+          "name": "timeseries_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 20.012897,
+          "values": [
+            20.012897
+          ]
+        },
+        {
+          "name": "vector_churn_p99_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 3581.360967,
+          "values": [
+            3581.360967
+          ]
+        },
+        {
+          "name": "max_commit_gap_ms",
+          "unit": "ms",
+          "better": "lower",
+          "median": 2243.751596,
+          "values": [
+            2243.751596
+          ]
+        },
+        {
+          "name": "heap_floor_slope_per_hour",
+          "unit": "per_hour",
+          "better": "lower",
+          "median": 0.3263021681706718,
+          "values": [
+            0.3263021681706718
+          ]
+        },
+        {
+          "name": "thread_slope_per_hour",
+          "unit": "per_hour",
+          "better": "lower",
+          "median": 0.010263321584076312,
+          "values": [
+            0.010263321584076312
+          ]
+        },
+        {
+          "name": "open_files_slope_per_hour",
+          "unit": "per_hour",
+          "better": "lower",
+          "median": 0.01866058469832057,
+          "values": [
+            0.01866058469832057
+          ]
+        }
+      ],
+      "status": "failed",
+      "error": "heap_floor_slope_per_hour is 0.3263021681706718, over its limit of 0.05",
+      "notes": {
+        "stallsWithoutDump": 1
+      }
+    }
+  ]
+}
